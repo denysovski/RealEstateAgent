@@ -1,0 +1,1382 @@
+<html lang="en" class="scroll-smooth"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kristýna Dvořáčková | Partner pro luxusní realitní služby</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&amp;display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        brand: {
+                            red: '#DC2626', // Red-600 base
+                            dark: '#171717', // Neutral-900 base
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Scroll offset for fixed navbar */
+        html {
+            scroll-padding-top: 5rem; /* 80px navbar height */
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #d4d4d4;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #a3a3a3;
+        }
+
+        /* Testimonials Carousel */
+        .testimonial-carousel {
+            position: relative;
+        }
+
+        .testimonial-track {
+            transform: translateX(0);
+        }
+        
+        /* Mobile: hide cards not in view within each page */
+        @media (max-width: 1299px) {
+            .testimonial-page {
+                display: flex !important;
+                justify-content: center;
+                align-items: center;
+            }
+            
+            .testimonial-card {
+                max-width: 500px;
+                width: 100%;
+                margin: 0 auto;
+            }
+        }
+
+        /* Timer Progress Animation */
+        .timer-progress {
+            transition: width 0.1s linear;
+            background-color: #DC2626;
+        }
+
+        .carousel-dot {
+            background-color: #d4d4d4;
+            cursor: pointer;
+        }
+
+        .carousel-dot:hover {
+            background-color: #a3a3a3;
+        }
+
+        /* Highlights responsive behavior */
+        @media (max-width: 749px) {
+            .highlights-row {
+                flex-wrap: wrap;
+                overflow-x: visible;
+                gap: 0.5rem;
+            }
+            .highlights-item {
+                width: auto !important;
+                height: auto !important;
+                padding: 0.5rem 0.75rem;
+                border: 2px solid #DC2626 !important;
+                color: #DC2626 !important;
+                border-radius: 9999px; /* pill button */
+                display: inline-flex;
+            }
+        }
+
+        /* Smooth accordion animation for certificates */
+        .certificate-content {
+                max-height: 0;
+                opacity: 0;
+                transform: translateY(-6px);
+                overflow: hidden;
+                transition: max-height 0.35s ease, opacity 0.3s ease, transform 0.3s ease, padding-top 0.3s ease, padding-bottom 0.3s ease;
+                padding-top: 0;
+                padding-bottom: 0;
+            }
+
+            .certificate-content.open {
+                max-height: 460px;
+                opacity: 1;
+                transform: translateY(0);
+                padding-top: 1rem;  /* 16px */
+                padding-bottom: 1rem; /* 16px */
+            }
+
+        /* Navigation breakpoint override: hamburger below 1000px */
+        @media (max-width: 999px) {
+            .desktop-menu {
+                display: none !important;
+            }
+            .mobile-menu-trigger {
+                display: flex !important;
+            }
+        }
+
+        @media (min-width: 1000px) {
+            .desktop-menu {
+                display: flex !important;
+            }
+            .mobile-menu-trigger {
+                display: none !important;
+            }
+            #mobile-menu {
+                display: none !important;
+            }
+        }
+
+        /* Ensure mobile dropdown shows between 768px and 999px when toggled */
+        @media (min-width: 768px) and (max-width: 999px) {
+            #mobile-menu {
+                display: none !important;
+            }
+            #mobile-menu:not(.hidden) {
+                display: block !important;
+            }
+        }
+
+        /* Contact layout: stack under 1350px, side-by-side above */
+        @media (max-width: 1349px) {
+            .contact-grid {
+                grid-template-columns: 1fr !important;
+            }
+            .contact-visual {
+                display: block !important;
+                order: 1;
+            }
+            .contact-form-wrapper {
+                max-width: 820px;
+                margin-left: auto;
+                margin-right: auto;
+                order: 2;
+            }
+        }
+
+        /* Keep contact image face-centered across breakpoints */
+        .contact-image {
+            object-position: center 20%;
+        }
+
+        /* Mobile menu animation - slide down on open */
+        #mobile-menu {
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+            visibility: hidden;
+            transition: max-height 0.3s ease-out, opacity 0.3s ease-out, visibility 0s 0.3s;
+        }
+
+        #mobile-menu.menu-open {
+            max-height: 500px;
+            opacity: 1;
+            visibility: visible;
+            transition: max-height 0.3s ease-out, opacity 0.3s ease-out, visibility 0s;
+        }
+
+        #mobile-menu.no-transition {
+            transition: none;
+        }
+
+        /* Scroll animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* Animation utility classes */
+        .animate-on-scroll {
+            opacity: 0;
+        }
+
+        .animate-on-scroll.animated {
+            animation-duration: 0.8s;
+            animation-fill-mode: both;
+            animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .animate-on-scroll.animated.fade-in-up {
+            animation-name: fadeInUp;
+        }
+
+        .animate-on-scroll.animated.fade-in {
+            animation-name: fadeIn;
+        }
+
+        .animate-on-scroll.animated.slide-in-left {
+            animation-name: slideInLeft;
+        }
+
+        .animate-on-scroll.animated.slide-in-right {
+            animation-name: slideInRight;
+        }
+
+        .animate-on-scroll.animated.scale-in {
+            animation-name: scaleIn;
+        }
+
+        .animate-on-scroll.animated.delay-100 {
+            animation-delay: 0.1s;
+        }
+
+        .animate-on-scroll.animated.delay-200 {
+            animation-delay: 0.2s;
+        }
+
+        .animate-on-scroll.animated.delay-300 {
+            animation-delay: 0.3s;
+        }
+
+        .animate-on-scroll.animated.delay-400 {
+            animation-delay: 0.4s;
+        }
+
+        .animate-on-scroll.animated.delay-500 {
+            animation-delay: 0.5s;
+        }
+
+        /* Hero animations load immediately */
+        .hero-animate {
+            animation-duration: 1s;
+            animation-fill-mode: both;
+            animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .hero-animate.fade-in {
+            animation-name: fadeIn;
+        }
+
+        .hero-animate.fade-in-up {
+            animation-name: fadeInUp;
+        }
+
+        .hero-animate.delay-100 {
+            animation-delay: 0.1s;
+        }
+
+        .hero-animate.delay-200 {
+            animation-delay: 0.2s;
+        }
+
+        .hero-animate.delay-300 {
+            animation-delay: 0.3s;
+        }
+
+        .hero-animate.delay-400 {
+            animation-delay: 0.4s;
+        }
+    </style>
+</head>
+<body class="font-sans text-neutral-600 antialiased bg-white selection:bg-red-100 selection:text-red-900">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 bg-white transition-all duration-300 shadow-sm" id="navbar">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="#" class="text-xl font-semibold tracking-tighter">
+                        <span id="logo-sarah" class="text-neutral-900">KRISTÝNA</span><span class="text-red-600">DVOŘÁČKOVÁ.</span>
+                    </a>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8 items-center desktop-menu">
+                    <a href="#home" class="nav-link text-sm font-medium text-neutral-900 hover:text-red-600 transition-colors">Domů</a>
+                    <a href="#about" class="nav-link text-sm font-medium text-neutral-900 hover:text-red-600 transition-colors">O mně</a>
+                    <a href="#services" class="nav-link text-sm font-medium text-neutral-900 hover:text-red-600 transition-colors">Služby</a>
+                    <a href="#listings" class="nav-link text-sm font-medium text-neutral-900 hover:text-red-600 transition-colors">Reference</a>
+                    <a href="#testimonials" class="nav-link text-sm font-medium text-neutral-900 hover:text-red-600 transition-colors">Recenze</a>
+                    <a href="#contact" class="px-5 py-2.5 bg-red-600 text-white text-sm font-medium rounded-full hover:bg-red-800 transition-all duration-300 shadow-lg shadow-red-600/20">
+                        Sjednat schůzku
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center mobile-menu-trigger">
+                    <button id="mobile-menu-btn" class="text-neutral-900 focus:outline-none">
+                        <span class="iconify" data-icon="lucide:menu" data-width="24" data-height="24"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-neutral-100 absolute w-full left-0 top-20">
+            <div class="px-6 py-4 space-y-3 flex flex-col">
+                <a href="#home" class="block text-base font-medium text-neutral-900">Domů</a>
+                <a href="#about" class="block text-base font-medium text-neutral-600">O mně</a>
+                <a href="#services" class="block text-base font-medium text-neutral-600">Služby</a>
+                <a href="#listings" class="block text-base font-medium text-neutral-600">Reference</a>
+                <a href="#testimonials" class="block text-base font-medium text-neutral-600">Recenze</a>
+                <a href="#contact" class="block w-full text-center px-5 py-3 mt-4 bg-red-600 text-white font-medium rounded-lg">Sjednat schůzku</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
+        <!-- Background Image with Overlay -->
+        <div class="absolute inset-0 z-0">
+            <img src="landing-page-image.jpg" alt="Luxury Real Estate" class="w-full h-full object-cover" style="object-position: right 80px;">
+            <div class="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent"></div>
+        </div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 text-center md:text-left w-full">
+            <div class="max-w-3xl">
+                <span class="hero-animate fade-in delay-100 inline-block py-1 px-3 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white text-xs font-medium tracking-wide mb-6">
+                    PRÉMIOVÉ REALITNÍ SLUŽBY
+                </span>
+                <h1 class="hero-animate fade-in-up delay-200 text-4xl md:text-6xl lg:text-7xl font-semibold text-white tracking-tight leading-[1.1] mb-6">
+                    Váš důvěryhodný partner <br>
+                    <span class="text-red-500 italic font-serif pr-2">úspěšného</span> prodeje nemovitosti.
+                </h1>
+                <p class="hero-animate fade-in-up delay-300 text-lg md:text-xl text-neutral-200 mb-10 leading-relaxed font-light max-w-2xl">
+                    Pomáhám Vám koupit, prodat a investovat s jasností a péčí. Zažijte bezproblémovou cestu přizpůsobenou vašim jedinečným cílům.
+                </p>
+                <div class="hero-animate fade-in-up delay-400 flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                    <a href="#services" class="px-8 py-4 bg-red-600 text-white text-sm font-medium rounded-full hover:bg-red-700 transition-all duration-300 shadow-xl shadow-red-900/20 flex items-center justify-center gap-2 group">
+                        Nabízené služby
+                        <span class="iconify group-hover:translate-x-1 transition-transform" data-icon="lucide:arrow-right" data-width="16"></span>
+                    </a>
+                    <a href="#contact" class="px-8 py-4 bg-white/10 backdrop-blur-md border border-white/20 text-white text-sm font-medium rounded-full hover:bg-white hover:text-neutral-900 transition-all duration-300 flex items-center justify-center">
+                        Kontaktujte mě
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+
+    <!-- Awards / Social Proof Strip -->
+    <div class="bg-white border-b border-neutral-100 py-10">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <p class="text-center text-xs font-medium text-neutral-400 uppercase tracking-widest mb-6">Spolupráce s partnerskými firmami</p>
+            <div class="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
+                <span class="text-xl font-serif font-bold italic text-neutral-800">Forbes</span>
+                <span class="text-xl font-sans font-bold tracking-tight text-neutral-800">Bloomberg</span>
+                <span class="text-xl font-serif font-semibold text-neutral-800">Architectural Digest</span>
+                <span class="text-xl font-sans font-bold text-neutral-800">Sotheby's</span>
+                <span class="text-xl font-serif italic text-neutral-800">Vogue Living</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 bg-neutral-50">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <!-- Image -->
+                <div class="animate-on-scroll slide-in-left relative order-2 lg:order-1">
+                    <div class="relative rounded-[2rem] overflow-hidden aspect-[4/5] shadow-2xl">
+                        <img src="placeholder-image1.jpg" alt="Sarah Jenkins" class="w-full h-full object-cover" style="object-position: center -40px;">
+                        <!-- Floating Badge -->
+                        <div class="absolute bottom-8 right-8 bg-white/90 backdrop-blur-md p-6 rounded-2xl shadow-lg max-w-[200px]">
+                            <p class="text-3xl font-semibold text-red-600 tracking-tight">6+</p>
+                            <p class="text-sm text-neutral-600 font-medium mt-1">Let zkušeností na realitním trhu s nemovitosmi</p>
+                        </div>
+                    </div>
+                    <!-- Decor element -->
+                    <div class="absolute -z-10 -top-8 -left-8 w-full h-full border border-red-200 rounded-[2rem]"></div>
+                </div>
+
+                <!-- Content -->
+                <div class="order-1 lg:order-2">
+                    <h2 class="animate-on-scroll fade-in-up text-red-600 font-medium tracking-wide text-sm uppercase mb-3">O mně</h2>
+                    <h3 class="animate-on-scroll fade-in-up delay-100 text-3xl md:text-4xl font-semibold text-neutral-900 tracking-tight mb-6 font-serif">
+                        Více než makléřka. <br>
+                        <span class="italic text-neutral-500">Jsem Váš přítel.</span>
+                    </h3>
+                    <div class="space-y-6 text-neutral-600 leading-relaxed font-light">
+                        <p>
+                            Realitní trh není jen o nákupu a prodeji. Jedná se především o strategická rozhodnutí, dlouhodobou hodnotu a chytré řízení kapitálu. Má profesní cesta začala zájmem o finance a investice, ale postupně se rozvinula v hluboké porozumění realitnímu trhu a investičním strategiím.
+                        </p>
+                        <p>
+                            Věřím v přístup "klient na prvním místě". Ať už prodáváte rezidenční nemovitost, optimalizujete své realitní portfolio nebo hledáte investiční příležitost s udržitelným výnosem, poskytuji jasnou stragetii.
+                        </p>
+                        <p>
+                            Mým cílem je zajistit maximální hodnotu Vaší nemovitosti, transparentní komunikaci a efektivní průběh celého procesu od prvotní analýzy až po úspěšné uzavření obchodu.
+                        </p>
+                    </div>
+                    
+                    <div class="mt-10 grid grid-cols-3 gap-6 border-t border-neutral-200 pt-8">
+                        <div>
+                            <p class="text-2xl font-semibold text-neutral-900 tracking-tight">25M+</p>
+                            <p class="text-xs text-neutral-500 mt-1 uppercase tracking-wide">Hodnota prodejů</p>
+                        </div>
+                        <div>
+                            <p class="text-2xl font-semibold text-neutral-900 tracking-tight">50+</p>
+                            <p class="text-xs text-neutral-500 mt-1 uppercase tracking-wide">Spokojené rodiny</p>
+                        </div>
+                        <div>
+                            <p class="text-2xl font-semibold text-neutral-900 tracking-tight">98%</p>
+                            <p class="text-xs text-neutral-500 mt-1 uppercase tracking-wide">Míra doporučení</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Awards & Certificates (below About) -->
+    <section id="awards" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <h2 class="animate-on-scroll fade-in-up text-3xl md:text-4xl font-semibold text-neutral-900 tracking-tight mb-4 font-serif">Ocenění &amp; Certifikáty</h2>
+                <p class="animate-on-scroll fade-in delay-100 text-neutral-500 font-light">Odborná a oborová ocenění, která potvrzují mou dlouhodobou práci, profesionalitu a důraz na vysokou kvalitu poskytovaných služeb.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="animate-on-scroll scale-in p-8 rounded-2xl border border-neutral-100 bg-white hover:shadow-xl transition-all duration-300">
+                    <div class="w-12 h-12 rounded-xl bg-red-50 text-red-600 flex items-center justify-center mb-6">
+                        <span class="iconify" data-icon="lucide:trophy" data-width="24"></span>
+                    </div>
+                    <h3 class="text-lg font-semibold text-neutral-900 mb-1">Nejlepší prodejce</h3>
+                    <p class="text-sm text-neutral-500">Asociace makléřů Jihomoravského kraje, 2023</p>
+                </div>
+                <div class="animate-on-scroll scale-in delay-100 p-8 rounded-2xl border border-neutral-100 bg-white hover:shadow-xl transition-all duration-300">
+                    <div class="w-12 h-12 rounded-xl bg-red-50 text-red-600 flex items-center justify-center mb-6">
+                        <span class="iconify" data-icon="lucide:award" data-width="24"></span>
+                    </div>
+                    <h3 class="text-lg font-semibold text-neutral-900 mb-1">Finanční poradce roku</h3>
+                    <p class="text-sm text-neutral-500">Cena za 5 hvězd, 2023</p>
+                </div>
+                <div class="animate-on-scroll scale-in delay-200 p-8 rounded-2xl border border-neutral-100 bg-white hover:shadow-xl transition-all duration-300">
+                    <div class="w-12 h-12 rounded-xl bg-red-50 text-red-600 flex items-center justify-center mb-6">
+                        <span class="iconify" data-icon="lucide:verified" data-width="24"></span>
+                    </div>
+                    <h3 class="text-lg font-semibold text-neutral-900 mb-1">Nejvyšší částka uzavřeného obchodu</h3>
+                    <p class="text-sm text-neutral-500">Oddělení Luxus, 2024</p>
+                </div>
+                <div class="animate-on-scroll scale-in delay-300 p-8 rounded-2xl border border-neutral-100 bg-white hover:shadow-xl transition-all duration-300">
+                    <div class="w-12 h-12 rounded-xl bg-red-50 text-red-600 flex items-center justify-center mb-6">
+                        <span class="iconify" data-icon="lucide:star" data-width="24"></span>
+                    </div>
+                    <h3 class="text-lg font-semibold text-neutral-900 mb-1">Vůdce trhu</h3>
+                    <p class="text-sm text-neutral-500">1% nejlepších makléřů, 2025</p>
+                </div>
+            </div>
+
+            <div id="certificates" class="mt-16">
+                <h3 class="text-2xl font-semibold text-neutral-900 tracking-tight mb-6 font-serif">Profesionální certifikáty</h3>
+                <div class="space-y-3">
+                    <!-- Certificate 1 -->
+                    <div>
+                        <button class="certificate-btn w-full flex items-center justify-between px-6 py-4 rounded-lg border border-neutral-200 hover:border-red-600 bg-neutral-50 hover:bg-white transition-all duration-200" data-cert="crs">
+                            <span class="text-neutral-800 font-medium">Certified Residential Specialist (CRS)</span>
+                            <span class="iconify cert-icon transition-transform" data-icon="lucide:chevron-down" data-width="18"></span>
+                        </button>
+                        <div class="certificate-content px-6 bg-white border border-t-0 border-neutral-200 rounded-b-lg space-y-3" id="cert-crs">
+                            <p class="text-sm text-neutral-600 flex items-center gap-2"><span class="iconify text-red-500" data-icon="lucide:globe-2" data-width="16"></span> Brno, 2025</p>
+                            <p class="text-sm text-neutral-600 flex items-start gap-2"><span class="text-red-500 font-semibold">|</span> Nejvyšší označení v realitách získané po kurzu CRS a letech praxe.</p>
+                        </div>
+                    </div>
+                    <!-- Certificate 2 -->
+                    <div>
+                        <button class="certificate-btn w-full flex items-center justify-between px-6 py-4 rounded-lg border border-neutral-200 hover:border-red-600 bg-neutral-50 hover:bg-white transition-all duration-200" data-cert="abr">
+                            <span class="text-neutral-800 font-medium">Accredited Buyer's Representative (ABR)</span>
+                            <span class="iconify cert-icon transition-transform" data-icon="lucide:chevron-down" data-width="18"></span>
+                        </button>
+                        <div class="certificate-content px-6 bg-white border border-t-0 border-neutral-200 rounded-b-lg space-y-3" id="cert-abr">
+                            <p class="text-sm text-neutral-600 flex items-center gap-2"><span class="iconify text-red-500" data-icon="lucide:globe-2" data-width="16"></span> Praha, 2024</p>
+                            <p class="text-sm text-neutral-600 flex items-start gap-2"><span class="text-red-500 font-semibold">|</span> Zaměření na kupující, absolvovaný kurz ABR a praxe v jednání.</p>
+                        </div>
+                    </div>
+                    <!-- Certificate 3 -->
+                    <div>
+                        <button class="certificate-btn w-full flex items-center justify-between px-6 py-4 rounded-lg border border-neutral-200 hover:border-red-600 bg-neutral-50 hover:bg-white transition-all duration-200" data-cert="srs">
+                            <span class="text-neutral-800 font-medium">Seller Representative Specialist (SRS)</span>
+                            <span class="iconify cert-icon transition-transform" data-icon="lucide:chevron-down" data-width="18"></span>
+                        </button>
+                        <div class="certificate-content px-6 bg-white border border-t-0 border-neutral-200 rounded-b-lg space-y-3" id="cert-srs">
+                            <p class="text-sm text-neutral-600 flex items-center gap-2"><span class="iconify text-red-500" data-icon="lucide:globe-2" data-width="16"></span> Ostrava, 2023</p>
+                            <p class="text-sm text-neutral-600 flex items-start gap-2"><span class="text-red-500 font-semibold">|</span> Reprezentace prodávajících, kurz SRS a praxe v prodejní strategii.</p>
+                        </div>
+                    </div>
+                    <!-- Certificate 4 -->
+                    <div>
+                        <button class="certificate-btn w-full flex items-center justify-between px-6 py-4 rounded-lg border border-neutral-200 hover:border-red-600 bg-neutral-50 hover:bg-white transition-all duration-200" data-cert="clhms">
+                            <span class="text-neutral-800 font-medium">Certified Luxury Home Marketing Specialist (CLHMS)</span>
+                            <span class="iconify cert-icon transition-transform" data-icon="lucide:chevron-down" data-width="18"></span>
+                        </button>
+                        <div class="certificate-content px-6 bg-white border border-t-0 border-neutral-200 rounded-b-lg space-y-3" id="cert-clhms">
+                            <p class="text-sm text-neutral-600 flex items-center gap-2"><span class="iconify text-red-500" data-icon="lucide:globe-2" data-width="16"></span> Miami, 2026</p>
+                            <p class="text-sm text-neutral-600 flex items-start gap-2"><span class="text-red-500 font-semibold">|</span> Marketing luxusních nemovitostí, pokročilý kurz a práce s prémiovými klienty.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <h2 class="animate-on-scroll fade-in-up text-3xl md:text-4xl font-semibold text-neutral-900 tracking-tight mb-4 font-serif">Nabídka realitních služeb</h2>
+                <p class="animate-on-scroll fade-in delay-100 text-neutral-500 font-light">Individuálně navržené strategie, které vycházejí z detailní analýzy trhu a Vašich cílů a pomáhají maximalizovat hodnotu nemovitosti, optimalizovat výnos a průběh celého nákupu či prodeje.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="animate-on-scroll scale-in group p-8 rounded-2xl border border-neutral-100 bg-white hover:shadow-xl hover:shadow-neutral-200/50 transition-all duration-300 hover:-translate-y-1">
+                    <div class="w-12 h-12 bg-red-50 rounded-xl flex items-center justify-center text-red-600 mb-6 group-hover:bg-red-600 group-hover:text-white transition-colors">
+                        <span class="iconify" data-icon="lucide:home" data-width="24" stroke-width="1.5"></span>
+                    </div>
+                    <h3 class="text-lg font-semibold text-neutral-900 mb-3">Strategie prodeje domu</h3>
+                    <p class="text-sm text-neutral-500 leading-relaxed">
+                        Od stagingu po focení nemovitosti a digitální marketing, pozicuji Vaši nemovitost tak, aby se prodala za nejvyšší možnou cenu.
+                    </p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="animate-on-scroll scale-in delay-100 group p-8 rounded-2xl border border-neutral-100 bg-white hover:shadow-xl hover:shadow-neutral-200/50 transition-all duration-300 hover:-translate-y-1">
+                    <div class="w-12 h-12 bg-red-50 rounded-xl flex items-center justify-center text-red-600 mb-6 group-hover:bg-red-600 group-hover:text-white transition-colors">
+                        <span class="iconify" data-icon="lucide:search" data-width="24" stroke-width="1.5"></span>
+                    </div>
+                    <h3 class="text-lg font-semibold text-neutral-900 mb-3">Zastoupení kupujícího</h3>
+                    <p class="text-sm text-neutral-500 leading-relaxed">
+                        Přístup k příslušným nabídkám a odborné dovednosti vyjednávání, které vám pomohou zajistit váš vysněný dům na konkurenčním trhu.
+                    </p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="animate-on-scroll scale-in delay-200 group p-8 rounded-2xl border border-neutral-100 bg-white hover:shadow-xl hover:shadow-neutral-200/50 transition-all duration-300 hover:-translate-y-1">
+                    <div class="w-12 h-12 bg-red-50 rounded-xl flex items-center justify-center text-red-600 mb-6 group-hover:bg-red-600 group-hover:text-white transition-colors">
+                        <span class="iconify" data-icon="lucide:trending-up" data-width="24" stroke-width="1.5"></span>
+                    </div>
+                    <h3 class="text-lg font-semibold text-neutral-900 mb-3">Investiční poradenství</h3>
+                    <p class="text-sm text-neutral-500 leading-relaxed">
+                        Analýza podporovaná daty pro identifikaci nemovitostí se silným potenciálem ROI, ať už pro příjmy z pronájmu nebo zvýšení kapitálu.
+                    </p>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="animate-on-scroll scale-in delay-300 group p-8 rounded-2xl border border-neutral-100 bg-white hover:shadow-xl hover:shadow-neutral-200/50 transition-all duration-300 hover:-translate-y-1">
+                    <div class="w-12 h-12 bg-red-50 rounded-xl flex items-center justify-center text-red-600 mb-6 group-hover:bg-red-600 group-hover:text-white transition-colors">
+                        <span class="iconify" data-icon="lucide:camera" data-width="24" stroke-width="1.5"></span>
+                    </div>
+                    <h3 class="text-lg font-semibold text-neutral-900 mb-3">Staging &amp; Návrh</h3>
+                    <p class="text-sm text-neutral-500 leading-relaxed">
+                        Bezplatná konzultace zaměřená na efektivní vizuální prezentaci nemovitosti v souladu s aktuálními trendy a očekáváním kupujících.
+                    </p>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="animate-on-scroll scale-in delay-400 group p-8 rounded-2xl border border-neutral-100 bg-white hover:shadow-xl hover:shadow-neutral-200/50 transition-all duration-300 hover:-translate-y-1">
+                    <div class="w-12 h-12 bg-red-50 rounded-xl flex items-center justify-center text-red-600 mb-6 group-hover:bg-red-600 group-hover:text-white transition-colors">
+                        <span class="iconify" data-icon="lucide:file-check" data-width="24" stroke-width="1.5"></span>
+                    </div>
+                    <h3 class="text-lg font-semibold text-neutral-900 mb-3">Dokumentace</h3>
+                    <p class="text-sm text-neutral-500 leading-relaxed">
+                        Pečlivá pozornost k dokumentům a podmínkám, zajišťující hladkou cestu k podpisu bez překvapení.
+                    </p>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="animate-on-scroll scale-in delay-500 group p-8 rounded-2xl border border-neutral-100 bg-white hover:shadow-xl hover:shadow-neutral-200/50 transition-all duration-300 hover:-translate-y-1">
+                    <div class="w-12 h-12 bg-red-50 rounded-xl flex items-center justify-center text-red-600 mb-6 group-hover:bg-red-600 group-hover:text-white transition-colors">
+                        <span class="iconify" data-icon="lucide:map-pin" data-width="24" stroke-width="1.5"></span>
+                    </div>
+                    <h3 class="text-lg font-semibold text-neutral-900 mb-3">Relokace</h3>
+                    <p class="text-sm text-neutral-500 leading-relaxed">
+                        Stěhujete se do neznámého města? Má concierge služba řeší logistiku, výzkum škol a prohlídky sousedství ve Vámi neznámých lokalitách.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Me Section -->
+    <section class="py-24 bg-neutral-900 text-white">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+                <div class="animate-on-scroll slide-in-left">
+                    <h2 class="text-3xl md:text-4xl font-semibold tracking-tight mb-6 font-serif">Proč spolupracovat se mnou?</h2>
+                    <p class="text-neutral-400 mb-8 font-light leading-relaxed">
+                        Na konkurenčním realitním trhu potřebujete víc než jen zprostředkovatele s přístupem do databáze nabídek. Potřebujete strategického partnera, zkušeného vyjednavače a profesionála, který vás provede celým procesem a bude hájit vaše zájmy na každém kroku.
+                    </p>
+                    <div class="space-y-6">
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0 w-6 h-6 rounded-full bg-red-600 flex items-center justify-center mt-1">
+                                <span class="iconify text-white" data-icon="lucide:check" data-width="14"></span>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-medium text-white">Individuální přístup ke klientům</h4>
+                                <p class="text-sm text-neutral-400 mt-1">Pracuji s omezeným počtem klientů, abych vám mohl věnovat maximální pozornost a být vám k dispozici kdykoli potřebujete.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0 w-6 h-6 rounded-full bg-red-600 flex items-center justify-center mt-1">
+                                <span class="iconify text-white" data-icon="lucide:check" data-width="14"></span>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-medium text-white">Špičkové vyjednávací schopnosti</h4>
+                                <p class="text-sm text-neutral-400 mt-1">Certifikovaný odborník na vyjednávání s prokazatelnými výsledky při dosahování lepších podmínek, než jsou nabídkové ceny.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0 w-6 h-6 rounded-full bg-red-600 flex items-center justify-center mt-1">
+                                <span class="iconify text-white" data-icon="lucide:check" data-width="14"></span>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-medium text-white">Rozsáhlá znalost lokálního trhu</h4>
+                                <p class="text-sm text-neutral-400 mt-1">Detailní přehled o jednotlivých lokalitách, školách i plánovaném rozvoji a budoucích projektech.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative h-full min-h-[400px]">
+                     <!-- Abstract UI Representation of Data/Success -->
+                    <div class="absolute inset-0 bg-neutral-800 rounded-2xl overflow-hidden border border-neutral-700">
+                        <img src="consult.jpg" class="w-full h-full object-cover opacity-50 hover:scale-105 transition-transform duration-700" alt="Meeting">
+                        <div class="absolute bottom-0 left-0 w-full p-8 bg-gradient-to-t from-neutral-900 to-transparent">
+                            <blockquote class="text-lg font-serif italic text-white mb-2">"Sarah dokázala proměnit stresující proces v jasně řízený úspěch. Její strategie přinesla vynikající výsledek."</blockquote>
+                            <p class="text-sm text-red-500 font-medium">— Marek P. &amp; Jiří K.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Carousel -->
+    <section id="listings" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <h2 class="animate-on-scroll fade-in-up text-3xl md:text-4xl font-semibold text-neutral-900 tracking-tight mb-4 font-serif">Co o mně říkají kolegové</h2>
+                <p class="animate-on-scroll fade-in delay-100 text-neutral-500 font-light">Autentické reference od zkušených profesionálů z realitního a investičního prostředí, které potvrzují mou odbornost, spolehlivost a dlouhodobou kvalitu poskytovaných služeb.</p>
+            </div>
+
+            <!-- Carousel Container -->
+            <div class="w-full">
+                <div class="relative min-h-[300px]">
+                    <!-- Page 1: Testimonials 1-3 -->
+                    <div class="testimonial-page absolute inset-0 grid grid-cols-1 xl:grid-cols-3 gap-8 opacity-100 visible transition-all duration-700" data-page="0">
+                        <!-- Testimonial 1 -->
+                        <div class="testimonial-card bg-neutral-50 rounded-2xl p-8 border border-neutral-100">
+                            <div class="flex flex-col items-center text-center">
+                                <div class="w-20 h-20 rounded-full overflow-hidden mb-4 border-2 border-red-500">
+                                    <img src="https://i.pravatar.cc/150?img=1" alt="Profile" class="w-full h-full object-cover">
+                                </div>
+                                <h3 class="text-lg font-semibold text-neutral-900">Jan Novák</h3>
+                                <p class="text-sm text-red-600 mb-4">Realitní makléř, RE/MAX</p>
+                                <p class="text-neutral-600 text-sm leading-relaxed italic">"Profesionální přístup a skvělé výsledky. Spolupráce s Kristýnou byla hladká a efektivní. Doporučuji všem."</p>
+                            </div>
+                        </div>
+
+                        <!-- Testimonial 2 -->
+                        <div class="testimonial-card bg-neutral-50 rounded-2xl p-8 border border-neutral-100">
+                            <div class="flex flex-col items-center text-center">
+                                <div class="w-20 h-20 rounded-full overflow-hidden mb-4 border-2 border-red-500">
+                                    <img src="https://i.pravatar.cc/150?img=5" alt="Profile" class="w-full h-full object-cover">
+                                </div>
+                                <h3 class="text-lg font-semibold text-neutral-900">Marie Svobodová</h3>
+                                <p class="text-sm text-red-600 mb-4">Senior konzultantka, Century 21</p>
+                                <p class="text-neutral-600 text-sm leading-relaxed italic">"Kristýna má výjimečné schopnosti v oblasti financí a investic. Její znalosti trhu jsou ohromující."</p>
+                            </div>
+                        </div>
+
+                        <!-- Testimonial 3 -->
+                        <div class="testimonial-card bg-neutral-50 rounded-2xl p-8 border border-neutral-100">
+                            <div class="flex flex-col items-center text-center">
+                                <div class="w-20 h-20 rounded-full overflow-hidden mb-4 border-2 border-red-500">
+                                    <img src="https://i.pravatar.cc/150?img=8" alt="Profile" class="w-full h-full object-cover">
+                                </div>
+                                <h3 class="text-lg font-semibold text-neutral-900">Petr Dvořák</h3>
+                                <p class="text-sm text-red-600 mb-4">Ředitel pobočky, Europace</p>
+                                <p class="text-neutral-600 text-sm leading-relaxed italic">"S Kristýnou jsem uzavřel několik velkých obchodů. Její profesionalita je na nejvyšší úrovni."</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Page 2: Testimonials 4-6 -->
+                    <div class="testimonial-page absolute inset-0 grid grid-cols-1 xl:grid-cols-3 gap-8 opacity-0 invisible transition-all duration-700" data-page="1">
+                        <!-- Testimonial 4 -->
+                        <div class="testimonial-card bg-neutral-50 rounded-2xl p-8 border border-neutral-100">
+                            <div class="flex flex-col items-center text-center">
+                                <div class="w-20 h-20 rounded-full overflow-hidden mb-4 border-2 border-red-500">
+                                    <img src="https://i.pravatar.cc/150?img=12" alt="Profile" class="w-full h-full object-cover">
+                                </div>
+                                <h3 class="text-lg font-semibold text-neutral-900">Eva Horáková</h3>
+                                <p class="text-sm text-red-600 mb-4">Investiční poradkyně, Partners</p>
+                                <p class="text-neutral-600 text-sm leading-relaxed italic">"Kristýna rozumí realitnímu trhu jako málokdo. Její strategie jsou promyšlené a účinné."</p>
+                            </div>
+                        </div>
+
+                        <!-- Testimonial 5 -->
+                        <div class="testimonial-card bg-neutral-50 rounded-2xl p-8 border border-neutral-100">
+                            <div class="flex flex-col items-center text-center">
+                                <div class="w-20 h-20 rounded-full overflow-hidden mb-4 border-2 border-red-500">
+                                    <img src="https://i.pravatar.cc/150?img=15" alt="Profile" class="w-full h-full object-cover">
+                                </div>
+                                <h3 class="text-lg font-semibold text-neutral-900">Tomáš Král</h3>
+                                <p class="text-sm text-red-600 mb-4">Developerský manažer, Skanska</p>
+                                <p class="text-neutral-600 text-sm leading-relaxed italic">"Spolehlivá, rychlá a vždy s úsměvem. Práce s Kristýnou je radost a výsledky mluví za vše."</p>
+                            </div>
+                        </div>
+
+                        <!-- Testimonial 6 -->
+                        <div class="testimonial-card bg-neutral-50 rounded-2xl p-8 border border-neutral-100">
+                            <div class="flex flex-col items-center text-center">
+                                <div class="w-20 h-20 rounded-full overflow-hidden mb-4 border-2 border-red-500">
+                                    <img src="https://i.pravatar.cc/150?img=20" alt="Profile" class="w-full h-full object-cover">
+                                </div>
+                                <h3 class="text-lg font-semibold text-neutral-900">Lucie Nováková</h3>
+                                <p class="text-sm text-red-600 mb-4">Hypoteční specialistka, ČSOB</p>
+                                <p class="text-neutral-600 text-sm leading-relaxed italic">"Kristýna je skutečný profesionál. Vždy připravená, vždy spolehlivá. Doporučuji její služby všem svým blízkým."</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Navigation Dots with Timer -->
+                <div class="flex justify-center items-center gap-2 xl:gap-3 mt-8">
+                    <!-- Desktop: 2 dots (hidden on small screens) -->
+                    <button class="carousel-dot desktop-dot hidden xl:block w-12 h-2 bg-neutral-300 rounded-full relative overflow-hidden transition-all" data-page="0">
+                        <span class="timer-progress absolute top-0 left-0 h-full w-0"></span>
+                    </button>
+                    <button class="carousel-dot desktop-dot hidden xl:block w-12 h-2 bg-neutral-300 rounded-full relative overflow-hidden transition-all" data-page="1">
+                        <span class="timer-progress absolute top-0 left-0 h-full w-0"></span>
+                    </button>
+                    
+                    <!-- Mobile: 6 dots (hidden on large screens) -->
+                    <button class="carousel-dot mobile-dot xl:hidden w-8 h-2 bg-neutral-300 rounded-full relative overflow-hidden transition-all" data-card="0">
+                        <span class="timer-progress absolute top-0 left-0 h-full w-0"></span>
+                    </button>
+                    <button class="carousel-dot mobile-dot xl:hidden w-8 h-2 bg-neutral-300 rounded-full relative overflow-hidden transition-all" data-card="1">
+                        <span class="timer-progress absolute top-0 left-0 h-full w-0"></span>
+                    </button>
+                    <button class="carousel-dot mobile-dot xl:hidden w-8 h-2 bg-neutral-300 rounded-full relative overflow-hidden transition-all" data-card="2">
+                        <span class="timer-progress absolute top-0 left-0 h-full w-0"></span>
+                    </button>
+                    <button class="carousel-dot mobile-dot xl:hidden w-8 h-2 bg-neutral-300 rounded-full relative overflow-hidden transition-all" data-card="3">
+                        <span class="timer-progress absolute top-0 left-0 h-full w-0"></span>
+                    </button>
+                    <button class="carousel-dot mobile-dot xl:hidden w-8 h-2 bg-neutral-300 rounded-full relative overflow-hidden transition-all" data-card="4">
+                        <span class="timer-progress absolute top-0 left-0 h-full w-0"></span>
+                    </button>
+                    <button class="carousel-dot mobile-dot xl:hidden w-8 h-2 bg-neutral-300 rounded-full relative overflow-hidden transition-all" data-card="5">
+                        <span class="timer-progress absolute top-0 left-0 h-full w-0"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Instagram: Finance & Real Estate (placed directly below Featured Listings) -->
+    <section id="social" class="py-24 bg-neutral-50">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <h2 class="animate-on-scroll fade-in-up text-3xl md:text-4xl font-semibold text-neutral-900 tracking-tight mb-4 font-serif">Realitní a finanční přehled</h2>
+                <p class="animate-on-scroll fade-in delay-100 text-neutral-500 font-light">Pravidelný odborný obsah na Instagramu zaměřený na realitní trh, investice a finanční strategie. Přehledně, srozumitelně a založeno na datech z praxe.</p>
+            </div>
+
+            <!-- Highlights row -->
+            <div class="highlights-row flex gap-4 overflow-x-auto pb-2 mb-10">
+                <div class="highlights-item flex-shrink-0 w-28 h-28 rounded-full border-2 border-red-600 bg-white flex items-center justify-center text-sm font-medium text-red-600">Tipy z trhu</div>
+                <div class="highlights-item flex-shrink-0 w-28 h-28 rounded-full border-2 border-red-600 bg-white flex items-center justify-center text-sm font-medium text-red-600">Finance</div>
+                <div class="highlights-item flex-shrink-0 w-28 h-28 rounded-full border-2 border-red-600 bg-white flex items-center justify-center text-sm font-medium text-red-600">Investování</div>
+                <div class="highlights-item flex-shrink-0 w-28 h-28 rounded-full border-2 border-red-600 bg-white flex items-center justify-center text-sm font-medium text-red-600">Prohlídky</div>
+                <div class="highlights-item flex-shrink-0 w-28 h-28 rounded-full border-2 border-red-600 bg-white flex items-center justify-center text-sm font-medium text-red-600">Q&A</div>
+            </div>
+
+            <!-- Posts grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Post 1 -->
+                <a href="https://www.instagram.com/p/DR42XrRlzYv/" target="_blank" rel="noopener" class="animate-on-scroll scale-in relative rounded-2xl overflow-hidden border border-neutral-100 bg-white group" aria-label="Přehrát video: 3 ways to reduce your mortgage interest cost in 2026">
+                    <div class="aspect-[4/5] overflow-hidden">
+                        <video src="reel1.mp4" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 reel-video" muted loop playsinline preload="metadata"></video>
+                    </div>
+                    <div class="absolute top-3 left-3 bg-white/80 backdrop-blur-sm rounded-full px-3 py-1 text-xs font-medium text-neutral-800 flex items-center gap-2">
+                        <span class="iconify" data-icon="lucide:instagram" data-width="14"></span> @SarahFinanceRE
+                    </div>
+                    <div class="absolute bottom-0 left-0 right-0 p-5 bg-gradient-to-t from-black/70 to-transparent text-white">
+                        <p class="text-sm font-medium">Pokud je ti 25 a ještě jsi nevydělal svůj první milion korun, tohle bys měl slyšet</p>
+                        <div class="mt-2 text-xs text-neutral-200 flex items-center gap-3">
+                            <span class="flex items-center gap-1"><span class="iconify" data-icon="lucide:calendar" data-width="14"></span> Publikováno 25. prosince 2025</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Post 2 -->
+                <a href="https://www.instagram.com/p/DSsc6tmicZz/" target="_blank" rel="noopener" class="animate-on-scroll scale-in delay-100 relative rounded-2xl overflow-hidden border border-neutral-100 bg-white group" aria-label="Přehrát video: Neighborhood spotlight: what drives premium pricing in top markets">
+                    <div class="aspect-[4/5] overflow-hidden">
+                        <video src="reel2.mp4" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 reel-video" muted loop playsinline preload="metadata"></video>
+                    </div>
+                    <div class="absolute top-3 left-3 bg-white/80 backdrop-blur-sm rounded-full px-3 py-1 text-xs font-medium text-neutral-800 flex items-center gap-2">
+                        <span class="iconify" data-icon="lucide:instagram" data-width="14"></span> @SarahFinanceRE
+                    </div>
+                    <div class="absolute bottom-0 left-0 right-0 p-5 bg-gradient-to-t from-black/70 to-transparent text-white">
+                        <p class="text-sm font-medium">Vlastní bydlení už nemusí být jen vzdáleným snem</p>
+                        <div class="mt-2 text-xs text-neutral-200 flex items-center gap-3">
+                            <span class="flex items-center gap-1"><span class="iconify" data-icon="lucide:calendar" data-width="14"></span> Publikováno 25. prosince 2025</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Post 3 -->
+                <a href="https://www.instagram.com/p/DKxH0V4Njqa/" target="_blank" rel="noopener" class="animate-on-scroll scale-in delay-200 relative rounded-2xl overflow-hidden border border-neutral-100 bg-white group" aria-label="Přehrát video: Cash flow vs appreciation: balancing returns in rentals">
+                    <div class="aspect-[4/5] overflow-hidden">
+                        <video src="reel3.mp4" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 reel-video" muted loop playsinline preload="metadata"></video>
+                    </div>
+                    <div class="absolute top-3 left-3 bg-white/80 backdrop-blur-sm rounded-full px-3 py-1 text-xs font-medium text-neutral-800 flex items-center gap-2">
+                        <span class="iconify" data-icon="lucide:instagram" data-width="14"></span> @SarahFinanceRE
+                    </div>
+                    <div class="absolute bottom-0 left-0 right-0 p-5 bg-gradient-to-t from-black/70 to-transparent text-white">
+                        <p class="text-sm font-medium">Kam bezpečně uložit peníze, aby neztrácely hodnotu?</p>
+                        <div class="mt-2 text-xs text-neutral-200 flex items-center gap-3">
+                            <span class="flex items-center gap-1"><span class="iconify" data-icon="lucide:calendar" data-width="14"></span> Publikováno 11. června 2025</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <!-- CTA -->
+            <div class="text-center mt-12">
+                <a href="https://www.instagram.com/kristynadvorackova/?hl=cs" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-red-600 text-white font-medium hover:bg-red-700 transition-colors">
+                    <span class="iconify" data-icon="lucide:instagram" data-width="18"></span>
+                    Follow @kristynadvorackova
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials" class="py-24 bg-neutral-50">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <h2 class="animate-on-scroll fade-in-up text-3xl md:text-4xl font-semibold text-center text-neutral-900 tracking-tight mb-16 font-serif">Recenze spokojených klientů</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Review 1 -->
+                <div class="animate-on-scroll scale-in bg-white p-8 rounded-2xl shadow-sm border border-neutral-100">
+                    <p class="text-xs uppercase tracking-wide text-red-600 mb-4">Květen 2025</p>
+                    <p class="text-neutral-600 mb-6 italic leading-relaxed">"Kristýna nám nepomohla jen koupit byt, ale najít domov. Trh byl hektický, přesto nás vedla jistě a v klidu. Cítili jsme se v bezpečí."</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-neutral-200 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&amp;w=400&amp;auto=format&amp;fit=crop" class="w-full h-full object-cover" alt="Klient">
+                        </div>
+                        <div>
+                            <p class="text-sm font-semibold text-neutral-900">Karel Novotný</p>
+                            <p class="text-xs text-neutral-400">Koupě bytu, Praha – Vinohrady</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="animate-on-scroll scale-in delay-100 bg-white p-8 rounded-2xl shadow-sm border border-neutral-100">
+                    <p class="text-xs uppercase tracking-wide text-red-600 mb-4">Listopad 2024</p>
+                    <p class="text-neutral-600 mb-6 italic leading-relaxed">"Maximální profesionalita. Prodej našeho investičního bytu zvládla přesně a rychle. Ví, jak vyjednat podmínky do posledního detailu."</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-neutral-200 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&amp;w=401&amp;auto=format&amp;fit=crop" class="w-full h-full object-cover" alt="Klient">
+                        </div>
+                        <div>
+                            <p class="text-sm font-semibold text-neutral-900">Lucie Veselá</p>
+                            <p class="text-xs text-neutral-400">Prodej bytu, Brno – střed</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="animate-on-scroll scale-in delay-200 bg-white p-8 rounded-2xl shadow-sm border border-neutral-100">
+                    <p class="text-xs uppercase tracking-wide text-red-600 mb-4">Srpen 2024</p>
+                    <p class="text-neutral-600 mb-6 italic leading-relaxed">"Komunikace byla skvělá, měl jsem přehled o každém kroku. Oceňuji strategii i transparentnost. Doporučuji všem investorům."</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-neutral-200 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1544723795-3fb6469f5b39?q=80&amp;w=401&amp;auto=format&amp;fit=crop" class="w-full h-full object-cover" alt="Klient">
+                        </div>
+                        <div>
+                            <p class="text-sm font-semibold text-neutral-900">Pavel Horák</p>
+                            <p class="text-xs text-neutral-400">Investor, Plzeň</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="bg-neutral-900 rounded-[2.5rem] overflow-hidden shadow-2xl">
+                <div class="grid grid-cols-1 lg:grid-cols-2 contact-grid">
+                    <!-- Image/Info Area (visible below 1350px) -->
+                    <div class="relative min-h-[320px] order-1 lg:order-2 contact-visual">
+                        <img src="placeholder-image.jpg" class="absolute inset-0 w-full h-full object-cover contact-image opacity-80" alt="Building">
+                        <div class="absolute inset-0 bg-red-600/10 mix-blend-multiply"></div>
+                        <div class="absolute bottom-6 md:bottom-10 lg:bottom-12 left-6 md:left-10 lg:left-12 right-6 md:right-10 lg:right-12 text-white">
+                            <h3 class="text-xl font-semibold mb-2">Přímý kontakt</h3>
+                            <div class="space-y-2 text-sm text-neutral-200">
+                                <p class="flex items-center gap-2"><span class="iconify" data-icon="lucide:phone" data-width="16"></span> +420 123 456 789</p>
+                                <p class="flex items-center gap-2"><span class="iconify" data-icon="lucide:mail" data-width="16"></span> kristyna.dvorackova@agent.com</p>
+                                <p class="flex items-center gap-2"><span class="iconify" data-icon="lucide:map-pin" data-width="16"></span> 123 Podniková, Brno</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Form Area -->
+                    <div class="p-10 md:p-16 lg:p-20 order-2 lg:order-1 contact-form-wrapper">
+                        <h2 class="animate-on-scroll fade-in-up text-3xl font-semibold text-white tracking-tight mb-2 font-serif">Začněme Vaši novou cestu</h2>
+                        <p class="animate-on-scroll fade-in delay-100 text-neutral-400 mb-8 font-light">Rezervujte si bezplatnou konzultaci, během které probereme vaše cíle, očekávání a možnosti dalšího postupu.</p>
+                        
+                        <form class="space-y-6">
+                            <div>
+                                <label class="block text-xs font-medium text-neutral-400 uppercase tracking-wide mb-2">Jméno</label>
+                                <input type="text" class="w-full bg-neutral-800 border border-neutral-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-red-600 transition-colors" placeholder="Hana Dvořáková">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-medium text-neutral-400 uppercase tracking-wide mb-2">Email</label>
+                                <input type="email" class="w-full bg-neutral-800 border border-neutral-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-red-600 transition-colors" placeholder="hana.dvorakova@example.com">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-medium text-neutral-400 uppercase tracking-wide mb-2">Zpráva</label>
+                                <textarea rows="4" class="w-full bg-neutral-800 border border-neutral-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-red-600 transition-colors" placeholder="Měla bych zájem o konzultaci prodeje nemovitosti..."></textarea>
+                            </div>
+                            <button type="button" class="w-full bg-red-600 text-white font-medium py-4 rounded-lg hover:bg-red-700 transition-all duration-300 shadow-lg shadow-red-900/40">
+                                Odeslat zprávu
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-neutral-100 py-12">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                <div class="col-span-1 md:col-span-1">
+                     <a href="#home" class="text-lg font-semibold tracking-tighter text-neutral-900">
+                        KRISTÝNA<span class="text-red-600"> DVOŘÁČKOVÁ</span>.
+                    </a>
+                    <p class="text-neutral-500 text-sm mt-4 leading-relaxed">
+                        Realitní služby s důrazem na důvěru, fakta a profesionalitu.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="font-medium text-neutral-900 mb-4">Menu</h4>
+                    <ul class="space-y-2 text-sm text-neutral-500">
+                        <li><a href="#home" class="hover:text-red-600 transition-colors">Domů</a></li>
+                        <li><a href="#about" class="hover:text-red-600 transition-colors">O mně</a></li>
+                        <li><a href="#services" class="hover:text-red-600 transition-colors">Služby</a></li>
+                        <li><a href="#listings" class="hover:text-red-600 transition-colors">Reference</a></li>
+                        <li><a href="#testimonials" class="hover:text-red-600 transition-colors">Recenze</a></li>
+                        <li><a href="#contact" class="hover:text-red-600 transition-colors">Kontakt</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-medium text-neutral-900 mb-4">Právní informace</h4>
+                    <ul class="space-y-2 text-sm text-neutral-500">
+                        <li><a href="#" class="hover:text-red-600 transition-colors">Ochrana soukromí</a></li>
+                        <li><a href="#" class="hover:text-red-600 transition-colors">Obchodní podmínky</a></li>
+                        <li><a href="#" class="hover:text-red-600 transition-colors">Přístupnost</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-medium text-neutral-900 mb-4">Sociální sítě</h4>
+                    <div class="flex gap-4">
+                        <a href="https://www.instagram.com/kristynadvorackova/?hl=cs" target="_blank" rel="noopener" class="w-8 h-8 rounded-full bg-neutral-100 flex items-center justify-center text-neutral-600 hover:bg-red-600 hover:text-white transition-all duration-300">
+                            <span class="iconify" data-icon="lucide:instagram" data-width="16"></span>
+                        </a>
+                        <a href="https://www.linkedin.com/in/krist%C3%BDna-dvo%C5%99%C3%A1%C4%8Dkov%C3%A1-b55a10243/" target="_blank" rel="noopener" class="w-8 h-8 rounded-full bg-neutral-100 flex items-center justify-center text-neutral-600 hover:bg-red-600 hover:text-white transition-all duration-300">
+                            <span class="iconify" data-icon="lucide:linkedin" data-width="16"></span>
+                        </a>
+                        <a href="https://www.facebook.com/profile.php?id=100085238327594" target="_blank" rel="noopener" class="w-8 h-8 rounded-full bg-neutral-100 flex items-center justify-center text-neutral-600 hover:bg-red-600 hover:text-white transition-all duration-300">
+                            <span class="iconify" data-icon="lucide:facebook" data-width="16"></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-neutral-100 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-neutral-400">
+                <p>© 2026 Kristýna Dvořáčková. Všechna práva vyhrazena.</p>
+                <p class="mt-2 md:mt-0">Developed & Designed by Daniel Svoboda</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Simple JS for Mobile Menu Toggle -->
+    <script>
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            if (menu.classList.contains('menu-open')) {
+                // Closing: animate
+                menu.classList.remove('no-transition');
+                menu.classList.remove('menu-open');
+                // Add hidden class after animation completes
+                setTimeout(() => {
+                    menu.classList.add('hidden');
+                }, 300);
+            } else {
+                // Opening: animate
+                menu.classList.remove('no-transition');
+                menu.classList.remove('hidden');
+                // Force reflow for animation
+                menu.offsetHeight;
+                menu.classList.add('menu-open');
+            }
+        });
+
+        // Close menu when clicking a link (animate close)
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.remove('no-transition');
+                menu.classList.remove('menu-open');
+                setTimeout(() => {
+                    menu.classList.add('hidden');
+                }, 300);
+            });
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', (e) => {
+            // No dropdown to close now; keep listener lean for future needs
+        });
+
+        // Scroll animations with Intersection Observer
+        const animateOnScroll = () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animated');
+                        // Optionally unobserve after animation
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            });
+
+            // Observe all elements with animate-on-scroll class
+            document.querySelectorAll('.animate-on-scroll').forEach(el => {
+                observer.observe(el);
+            });
+        };
+
+        // Trigger hero animations on load
+        window.addEventListener('load', () => {
+            document.querySelectorAll('.hero-animate').forEach(el => {
+                el.style.opacity = '1';
+                el.style.animationPlayState = 'running';
+            });
+            
+            // Initialize scroll animations
+            animateOnScroll();
+        });
+
+        // Certificate dropdown functionality
+        const certificateButtons = document.querySelectorAll('.certificate-btn');
+        const certificateContents = document.querySelectorAll('.certificate-content');
+
+        // Open the first certificate by default
+        if (certificateContents.length > 0) {
+            certificateContents[0].classList.add('open');
+        }
+
+        certificateButtons.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const certId = btn.getAttribute('data-cert');
+                const content = document.getElementById(`cert-${certId}`);
+                const icon = btn.querySelector('.cert-icon');
+
+                // Close all other certificates
+                certificateContents.forEach(cert => {
+                    if (cert.id !== `cert-${certId}`) {
+                        cert.classList.remove('open');
+                        const otherBtn = document.querySelector(`button[data-cert="${cert.id.replace('cert-','')}"] .cert-icon`);
+                        if (otherBtn) otherBtn.style.transform = 'rotate(0deg)';
+                    }
+                });
+
+                // Toggle current certificate
+                const isOpen = content.classList.contains('open');
+                content.classList.toggle('open');
+
+                // Rotate icon
+                icon.style.transform = isOpen ? 'rotate(0deg)' : 'rotate(180deg)';
+            });
+        });
+
+        // Testimonials Carousel
+        const testimonialPages = document.querySelectorAll('.testimonial-page');
+        const testimonialCards = document.querySelectorAll('.testimonial-card');
+        const desktopDots = document.querySelectorAll('.desktop-dot');
+        const mobileDots = document.querySelectorAll('.mobile-dot');
+        let currentPage = 0;
+        let currentCard = 0;
+        let autoRotateInterval;
+        let timerInterval;
+        let timerProgress = 0;
+        const ROTATION_TIME = 5000; // 5 seconds per rotation
+        const isMobile = () => window.innerWidth < 1300;
+
+        function updateCarousel(index, resetTimer = true) {
+            if (resetTimer) {
+                clearInterval(autoRotateInterval);
+                clearInterval(timerInterval);
+                timerProgress = 0;
+                // Reset all timer progress bars
+                document.querySelectorAll('.timer-progress').forEach(progress => {
+                    progress.style.width = '0%';
+                });
+                // On mobile, pre-fill all previous indicators when jumping forward
+                if (isMobile()) {
+                    mobileDots.forEach((dot, i) => {
+                        const progress = dot.querySelector('.timer-progress');
+                        if (progress) {
+                            progress.style.width = i < index ? '100%' : '0%';
+                        }
+                    });
+                } else {
+                    // On desktop, pre-fill previous page indicators
+                    desktopDots.forEach((dot, i) => {
+                        const progress = dot.querySelector('.timer-progress');
+                        if (progress) {
+                            progress.style.width = i < index ? '100%' : '0%';
+                        }
+                    });
+                }
+                startAutoRotate();
+            }
+
+            if (isMobile()) {
+                // Mobile: show one centered card at a time
+                currentCard = index;
+                const pageIndex = Math.floor(currentCard / 3); // 0 or 1
+                const cardIndexInPage = currentCard % 3; // 0..2
+
+                testimonialPages.forEach((page, pIdx) => {
+                    // Toggle page visibility
+                    if (pIdx === pageIndex) {
+                        page.classList.remove('opacity-0', 'invisible');
+                        page.classList.add('opacity-100', 'visible');
+                    } else {
+                        page.classList.remove('opacity-100', 'visible');
+                        page.classList.add('opacity-0', 'invisible');
+                    }
+
+                    // Within each page, hide all cards except the selected one
+                    const cardsInPage = page.querySelectorAll('.testimonial-card');
+                    cardsInPage.forEach((cardEl, cIdx) => {
+                        if (pIdx === pageIndex && cIdx === cardIndexInPage) {
+                            cardEl.classList.remove('hidden');
+                        } else {
+                            cardEl.classList.add('hidden');
+                        }
+                    });
+                });
+            } else {
+                // Desktop: show pages of 3 cards; ensure cards are visible
+                currentPage = index;
+                testimonialPages.forEach(page => {
+                    page.querySelectorAll('.testimonial-card').forEach(cardEl => {
+                        cardEl.classList.remove('hidden');
+                    });
+                });
+
+                testimonialPages.forEach((page, idx) => {
+                    if (idx === currentPage) {
+                        page.classList.remove('opacity-0', 'invisible');
+                        page.classList.add('opacity-100', 'visible');
+                    } else {
+                        page.classList.remove('opacity-100', 'visible');
+                        page.classList.add('opacity-0', 'invisible');
+                    }
+                });
+            }
+        }
+
+        function nextPage() {
+            if (isMobile()) {
+                currentCard = (currentCard + 1) % 6; // Cycle through 6 cards
+                updateCarousel(currentCard, false);
+            } else {
+                currentPage = (currentPage + 1) % 2; // Toggle between 0 and 1
+                updateCarousel(currentPage, false);
+            }
+            timerProgress = 0;
+        }
+
+        function startAutoRotate() {
+            // Update timer progress
+            timerInterval = setInterval(() => {
+                timerProgress += 100;
+                const percentage = (timerProgress / ROTATION_TIME) * 100;
+                
+                let activeProgress;
+                if (isMobile()) {
+                    activeProgress = mobileDots[currentCard]?.querySelector('.timer-progress');
+                } else {
+                    activeProgress = desktopDots[currentPage]?.querySelector('.timer-progress');
+                }
+                
+                if (activeProgress) {
+                    activeProgress.style.width = percentage + '%';
+                }
+
+                // When timer reaches 100%, move to next page/card
+                if (percentage >= 100) {
+                    // On desktop, when the second dot finishes, clear both dots
+                    if (!isMobile() && currentPage === 1) {
+                        desktopDots.forEach(dot => {
+                            const progress = dot.querySelector('.timer-progress');
+                            if (progress) {
+                                progress.style.width = '0%';
+                            }
+                        });
+                    }
+                    // On mobile, when the 6th dot finishes, clear all and restart
+                    if (isMobile() && currentCard === 5) {
+                        mobileDots.forEach(dot => {
+                            const progress = dot.querySelector('.timer-progress');
+                            if (progress) {
+                                progress.style.width = '0%';
+                            }
+                        });
+                    }
+                    nextPage();
+                }
+            }, 100);
+        }
+
+        // Dot click handlers
+        desktopDots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                updateCarousel(index, true);
+            });
+        });
+        
+        mobileDots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                updateCarousel(index, true);
+            });
+        });
+
+        // Initialize
+        updateCarousel(0, true);
+
+        // Handle window resize: reset to first when crossing breakpoint
+        let lastIsMobile = isMobile();
+        window.addEventListener('resize', () => {
+            const nowIsMobile = isMobile();
+            if (nowIsMobile !== lastIsMobile) {
+                // Breakpoint crossed → reset to first
+                currentCard = 0;
+                currentPage = 0;
+                updateCarousel(0, true);
+                lastIsMobile = nowIsMobile;
+            } else {
+                // Same mode → re-render current state
+                if (nowIsMobile) {
+                    updateCarousel(currentCard, false);
+                } else {
+                    updateCarousel(currentPage, false);
+                }
+            }
+        });
+
+        // Autoplay reels when the social section enters the viewport
+        const socialSection = document.getElementById('social');
+        const reelVideos = document.querySelectorAll('.reel-video');
+
+        reelVideos.forEach(video => {
+            video.muted = true;
+            video.loop = true;
+            video.playsInline = true;
+        });
+
+        if ('IntersectionObserver' in window && socialSection) {
+            const reelObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting && entry.intersectionRatio >= 0.4) {
+                        reelVideos.forEach(video => {
+                            video.play().catch(() => {});
+                        });
+                    } else {
+                        reelVideos.forEach(video => {
+                            video.pause();
+                        });
+                    }
+                });
+            }, { threshold: 0.4 });
+
+            reelObserver.observe(socialSection);
+        } else {
+            reelVideos.forEach(video => video.play().catch(() => {}));
+        }
+    </script>
+
+</body></html>
