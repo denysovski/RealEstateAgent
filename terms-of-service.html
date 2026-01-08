@@ -1,0 +1,265 @@
+<html lang="cs" class="scroll-smooth"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Obchodní podmínky | Ing. Kristýna Dvořáčková</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&amp;display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        brand: {
+                            red: '#DC2626',
+                            dark: '#171717',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-sans text-neutral-600 antialiased bg-white">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 bg-white transition-all duration-300 shadow-sm" id="navbar">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="index.html" class="text-xl font-semibold tracking-tighter">
+                        <span class="text-gray-500 italic text-sm mr-1">Ing.</span> <span class="text-neutral-900">KRISTÝNA</span><span class="text-red-600"> DVOŘÁČKOVÁ.</span>
+                    </a>
+                </div>
+                <div class="hidden md:flex space-x-8 items-center desktop-menu">
+                    <a href="index.html" class="text-sm font-medium text-neutral-900 hover:text-red-600 transition-colors">Domů</a>
+                    <a href="index.html#about" class="text-sm font-medium text-neutral-900 hover:text-red-600 transition-colors">O mně</a>
+                    <a href="index.html#services" class="text-sm font-medium text-neutral-900 hover:text-red-600 transition-colors">Služby</a>
+                    <a href="index.html#listings" class="text-sm font-medium text-neutral-900 hover:text-red-600 transition-colors">Reference</a>
+                    <a href="index.html#testimonials" class="text-sm font-medium text-neutral-900 hover:text-red-600 transition-colors">Recenze</a>
+                    <a href="index.html#contact" class="px-5 py-2.5 bg-red-600 text-white text-sm font-medium rounded-full hover:bg-red-800 transition-all duration-300 shadow-lg shadow-red-600/20">
+                        Sjednat schůzku
+                    </a>
+                </div>
+                <div class="md:hidden flex items-center mobile-menu-trigger">
+                    <button id="mobile-menu-btn" class="text-neutral-900 focus:outline-none">
+                        <span class="iconify" data-icon="lucide:menu" data-width="24" data-height="24"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-neutral-100 absolute w-full left-0 top-20">
+            <div class="px-6 py-4 space-y-3 flex flex-col">
+                <a href="index.html" class="block text-base font-medium text-neutral-900">Domů</a>
+                <a href="index.html#about" class="block text-base font-medium text-neutral-600">O mně</a>
+                <a href="index.html#services" class="block text-base font-medium text-neutral-600">Služby</a>
+                <a href="index.html#listings" class="block text-base font-medium text-neutral-600">Reference</a>
+                <a href="index.html#testimonials" class="block text-base font-medium text-neutral-600">Recenze</a>
+                <a href="index.html#contact" class="block w-full text-center px-5 py-3 mt-4 bg-red-600 text-white font-medium rounded-lg">Sjednat schůzku</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-[300px] flex items-center justify-center pt-32 pb-16 bg-neutral-50">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 w-full">
+            <h1 class="text-4xl md:text-5xl font-semibold text-neutral-900 tracking-tight mb-4 font-serif">Obchodní podmínky</h1>
+            <p class="text-lg text-neutral-600">Pravidla pro poskytování našich realitních a finančních služeb</p>
+        </div>
+    </section>
+
+    <!-- Content Section -->
+    <section class="py-16 bg-white">
+        <div class="max-w-4xl mx-auto px-6 lg:px-8">
+            <div class="space-y-8">
+                <div>
+                    <h2 class="text-2xl font-semibold text-neutral-900 mb-4 font-serif">1. Předmět smlouvy</h2>
+                    <p class="text-neutral-600 leading-relaxed">
+                        Obchodní podmínky (dále jen "Podmínky") upravují právní vztah mezi Ing. Kristýnou Dvořáčkovou (realitní a finanční poradkyně) a klientem při poskytování realitních a finančních poradenských služeb. Každá smlouva o poskytování služeb se řídí těmito Podmínkami.
+                    </p>
+                </div>
+
+                <div>
+                    <h2 class="text-2xl font-semibold text-neutral-900 mb-4 font-serif">2. Rozsah služeb</h2>
+                    <p class="text-neutral-600 leading-relaxed mb-4">Poskytujeme následující služby:</p>
+                    <ul class="list-disc list-inside space-y-2 text-neutral-600">
+                        <li>Realitní poradenství (nákup, prodej, pronájem)</li>
+                        <li>Hypoteční poradenství</li>
+                        <li>Finanční plánování</li>
+                        <li>Investiční analýzu nemovitostí</li>
+                        <li>Daňové poradenství v oblasti realit</li>
+                        <li>Strategie prodeje a marketingu nemovitostí</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h2 class="text-2xl font-semibold text-neutral-900 mb-4 font-serif">3. Vznik smlouvy</h2>
+                    <p class="text-neutral-600 leading-relaxed">
+                        Smlouva mezi klientem a námi vzniká uzavřením písemné smlouvy podepsané oběma stranami. Každý klient musí být starší 18 let a být plně způsobilý k právním úkonům. Bezplatná konzultace nejednotí právně žádné ze stran.
+                    </p>
+                </div>
+
+                <div>
+                    <h2 class="text-2xl font-semibold text-neutral-900 mb-4 font-serif">4. Honoráře a platby</h2>
+                    <p class="text-neutral-600 leading-relaxed mb-4">
+                        Honoráře za naše služby jsou dohodnuty v individuální smlouvě s klientem. Standardní modely honorářů:
+                    </p>
+                    <ul class="list-disc list-inside space-y-2 text-neutral-600">
+                        <li><strong>Paušální honorář:</strong> Pevně dohodnutá cena za konkrétní službu</li>
+                        <li><strong>Procentní honorář:</strong> Procento z hodnoty transakce (běžně 1-3%)</li>
+                        <li><strong>Hodinový honorář:</strong> Dohodnutá hodinová sazba</li>
+                    </ul>
+                    <p class="text-neutral-600 leading-relaxed mt-4">
+                        Fakturu vydáváme po dohodě s klientem. Platby lze provést bankovním převodem. Splatnost faktury je 14 dní od vydání.
+                    </p>
+                </div>
+
+                <div>
+                    <h2 class="text-2xl font-semibold text-neutral-900 mb-4 font-serif">5. Povinnosti klienta</h2>
+                    <ul class="list-disc list-inside space-y-2 text-neutral-600">
+                        <li>Poskytnout nám všechny relevantní a pravdivé informace</li>
+                        <li>Komunikovat s námi pravidelně a dle domluvy</li>
+                        <li>Zaplatit honoráře v sjednaném termínu</li>
+                        <li>Dodržovat důvěrnost a bezpečnost komunikace</li>
+                        <li>Informovat nás o změnách relevantních pro služby</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h2 class="text-2xl font-semibold text-neutral-900 mb-4 font-serif">6. Naše povinnosti</h2>
+                    <ul class="list-disc list-inside space-y-2 text-neutral-600">
+                        <li>Poskytovat služby v souladu se smlouvou a odborně</li>
+                        <li>Jednopat s maximální péčí a profesionalitou</li>
+                        <li>Respektovat důvěrnost informací klienta</li>
+                        <li>Komunikovat transparentně</li>
+                        <li>Chránit osobní údaje klienta</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h2 class="text-2xl font-semibold text-neutral-900 mb-4 font-serif">7. Zrušení smlouvy</h2>
+                    <p class="text-neutral-600 leading-relaxed mb-4">
+                        Smlouvu může kterákoli strana zrušit:
+                    </p>
+                    <ul class="list-disc list-inside space-y-2 text-neutral-600">
+                        <li>Písemným upozorněním se lhůtou 30 dní</li>
+                        <li>Okamžitě v případě porušení zásadní povinnosti</li>
+                        <li>Dohodou obou stran</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h2 class="text-2xl font-semibold text-neutral-900 mb-4 font-serif">8. Omezení odpovědnosti</h2>
+                    <p class="text-neutral-600 leading-relaxed">
+                        Naše služby jsou poskytovány jako poradenství. Nepřejímáme odpovědnost za rozhodnutí, která klient činí na základě našich rad. Realitní trh je dynamický a ceny nemovitostí se mění. Nemůžeme garantovat konkrétní cenu prodeje ani výši pronájmu.
+                    </p>
+                </div>
+
+                <div>
+                    <h2 class="text-2xl font-semibold text-neutral-900 mb-4 font-serif">9. Pojistné krytí</h2>
+                    <p class="text-neutral-600 leading-relaxed">
+                        Máme odpovídající pojištění odpovědnosti za škodu v souladu se zákonnými požadavky.
+                    </p>
+                </div>
+
+                <div>
+                    <h2 class="text-2xl font-semibold text-neutral-900 mb-4 font-serif">10. Aplikable právo a řešení sporů</h2>
+                    <p class="text-neutral-600 leading-relaxed">
+                        Tyto Podmínky se řídí právem České republiky. Veškeré spory budou řešeny v souladu s českým právem. Nejdříve se pokusíme vyřešit spor dohodou. Není-li to možné, věc se předloží příslušnému soudu.
+                    </p>
+                </div>
+
+                <div>
+                    <h2 class="text-2xl font-semibold text-neutral-900 mb-4 font-serif">11. Změny podmínek</h2>
+                    <p class="text-neutral-600 leading-relaxed">
+                        Vyhrazujeme si právo tyto Obchodní podmínky změnit. Klienti budou informováni minimálně 30 dní předem. Pokud s změnami nesouhlasí, mohou smlouvu zrušit.
+                    </p>
+                </div>
+
+                <div class="pt-8 border-t border-neutral-200">
+                    <p class="text-sm text-neutral-500">Poslední aktualizace: Leden 2026</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-neutral-100 py-12">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                <div class="col-span-1 md:col-span-1">
+                     <a href="index.html" class="text-lg font-semibold tracking-tighter text-neutral-900">
+                        <span class="text-gray-500 italic text-sm mr-1">Ing.</span> KRISTÝNA<span class="text-red-600"> DVOŘÁČKOVÁ</span>.
+                    </a>
+                    <p class="text-neutral-500 text-sm mt-4 leading-relaxed">
+                        Realitní služby s důrazem na důvěru, fakta a profesionalitu.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="font-medium text-neutral-900 mb-4">Menu</h4>
+                    <ul class="space-y-2 text-sm text-neutral-500">
+                        <li><a href="index.html" class="hover:text-red-600 transition-colors">Domů</a></li>
+                        <li><a href="index.html#about" class="hover:text-red-600 transition-colors">O mně</a></li>
+                        <li><a href="index.html#services" class="hover:text-red-600 transition-colors">Služby</a></li>
+                        <li><a href="index.html#listings" class="hover:text-red-600 transition-colors">Reference</a></li>
+                        <li><a href="index.html#testimonials" class="hover:text-red-600 transition-colors">Recenze</a></li>
+                        <li><a href="index.html#contact" class="hover:text-red-600 transition-colors">Kontakt</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-medium text-neutral-900 mb-4">Právní informace</h4>
+                    <ul class="space-y-2 text-sm text-neutral-500">
+                        <li><a href="privacy-policy.html" class="hover:text-red-600 transition-colors">Ochrana soukromí</a></li>
+                        <li><a href="terms-of-service.html" class="hover:text-red-600 transition-colors">Obchodní podmínky</a></li>
+                        <li><a href="accessibility.html" class="hover:text-red-600 transition-colors">Přístupnost</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-medium text-neutral-900 mb-4">Sociální sítě</h4>
+                    <div class="flex gap-4">
+                        <a href="https://www.instagram.com/kristynadvorackova/?hl=cs" target="_blank" rel="noopener" class="w-8 h-8 rounded-full bg-neutral-100 flex items-center justify-center text-neutral-600 hover:bg-red-600 hover:text-white transition-all duration-300">
+                            <span class="iconify" data-icon="lucide:instagram" data-width="16"></span>
+                        </a>
+                        <a href="https://www.linkedin.com/in/krist%C3%BDna-dvo%C5%99%C3%A1%C4%8Dkov%C3%A1-b55a10243/" target="_blank" rel="noopener" class="w-8 h-8 rounded-full bg-neutral-100 flex items-center justify-center text-neutral-600 hover:bg-red-600 hover:text-white transition-all duration-300">
+                            <span class="iconify" data-icon="lucide:linkedin" data-width="16"></span>
+                        </a>
+                        <a href="https://www.facebook.com/profile.php?id=100085238327594" target="_blank" rel="noopener" class="w-8 h-8 rounded-full bg-neutral-100 flex items-center justify-center text-neutral-600 hover:bg-red-600 hover:text-white transition-all duration-300">
+                            <span class="iconify" data-icon="lucide:facebook" data-width="16"></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-neutral-100 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-neutral-400">
+                <p>© 2026 Ing. Kristýna Dvořáčková, MFP. Všechna práva vyhrazena.</p>
+                <p class="mt-2 md:mt-0">Developed & Designed by Daniel Svoboda</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Menu Script -->
+    <script>
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            if (menu.classList.contains('hidden')) {
+                menu.classList.remove('hidden');
+            } else {
+                menu.classList.add('hidden');
+            }
+        });
+
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+            });
+        });
+    </script>
+
+</body></html>
