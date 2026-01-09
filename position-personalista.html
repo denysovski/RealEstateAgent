@@ -1,0 +1,319 @@
+<html lang="cs" class="scroll-smooth"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personalista/ka | Ing. Kristýna Dvořáčková, MFP</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html {
+            scroll-padding-top: 5rem;
+        }
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #d4d4d4;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #a3a3a3;
+        }
+        #mobile-menu {
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+            visibility: hidden;
+            transition: max-height 0.3s ease-out, opacity 0.3s ease-out, visibility 0s 0.3s;
+        }
+        #mobile-menu.menu-open {
+            max-height: 500px;
+            opacity: 1;
+            visibility: visible;
+            transition: max-height 0.3s ease-out, opacity 0.3s ease-out, visibility 0s;
+        }
+    </style>
+</head>
+<body class="font-sans text-neutral-600 antialiased bg-white">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 bg-white transition-all duration-300 shadow-sm">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="index.html" class="text-xl font-semibold tracking-tighter">
+                        <span class="text-neutral-900">KRISTÝNA</span><span class="text-red-600"> DVOŘÁČKOVÁ</span>
+                    </a>
+                </div>
+
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="index.html#home" class="text-sm font-medium text-neutral-900 hover:text-red-600 transition-colors">Domů</a>
+                    <a href="index.html#about" class="text-sm font-medium text-neutral-900 hover:text-red-600 transition-colors">O mně</a>
+                    <a href="index.html#services" class="text-sm font-medium text-neutral-900 hover:text-red-600 transition-colors">Služby</a>
+                    <a href="index.html#listings" class="text-sm font-medium text-neutral-900 hover:text-red-600 transition-colors">Reference</a>
+                    <a href="index.html#testimonials" class="text-sm font-medium text-neutral-900 hover:text-red-600 transition-colors">Recenze</a>
+                    <a href="index.html#career" class="text-sm font-medium text-neutral-900 hover:text-red-600 transition-colors">Kariéra</a>
+                    <a href="index.html#contact" class="px-5 py-2.5 bg-red-600 text-white text-sm font-medium rounded-full hover:bg-red-800 transition-all duration-300 shadow-lg shadow-red-600/20">
+                        Sjednat schůzku
+                    </a>
+                </div>
+
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-neutral-900 focus:outline-none">
+                        <span class="iconify" data-icon="lucide:menu" data-width="24"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="md:hidden bg-white border-b border-neutral-100 absolute w-full left-0 top-20">
+            <div class="px-6 py-4 space-y-3 flex flex-col">
+                <a href="index.html#home" class="block text-base font-medium text-neutral-900">Domů</a>
+                <a href="index.html#about" class="block text-base font-medium text-neutral-600">O mně</a>
+                <a href="index.html#services" class="block text-base font-medium text-neutral-600">Služby</a>
+                <a href="index.html#listings" class="block text-base font-medium text-neutral-600">Reference</a>
+                <a href="index.html#testimonials" class="block text-base font-medium text-neutral-600">Recenze</a>
+                <a href="index.html#career" class="block text-base font-medium text-neutral-600">Kariéra</a>
+                <a href="index.html#contact" class="block w-full text-center px-5 py-3 mt-4 bg-red-600 text-white font-medium rounded-lg">Sjednat schůzku</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative h-96 flex items-center justify-center pt-20 overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&h=400&fit=crop" alt="Personalista/ka" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-r from-black/60 via-black/40 to-transparent"></div>
+        </div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 text-center w-full">
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-semibold text-white tracking-tight mb-4 font-serif">
+                Personalista/ka
+            </h1>
+            <p class="text-lg text-neutral-200 font-light max-w-2xl mx-auto">
+                Buduj talent v naší rostoucí organizaci a formuj budoucnost teamu
+            </p>
+        </div>
+    </section>
+
+    <!-- Content Section -->
+    <section class="py-24 bg-white">
+        <div class="max-w-5xl mx-auto px-6 lg:px-8">
+            <!-- Image -->
+            <div class="mb-16 rounded-2xl overflow-hidden shadow-xl">
+                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=1200&h=400&fit=crop" alt="HR" class="w-full h-64 object-cover">
+            </div>
+
+            <!-- Co nabízíme -->
+            <div class="mb-16">
+                <h2 class="text-2xl font-semibold text-neutral-900 mb-2 font-serif">Co nabízíme</h2>
+                <div class="w-16 h-1 bg-red-600 mb-8"></div>
+                <ul class="space-y-4 text-neutral-600 leading-relaxed">
+                    <li class="flex items-start gap-3">
+                        <span class="iconify text-red-600 mt-1 flex-shrink-0" data-icon="lucide:check-circle" data-width="20"></span>
+                        <span>Klíčovou roli v budování a rozvoji našeho teamu.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="iconify text-red-600 mt-1 flex-shrink-0" data-icon="lucide:check-circle" data-width="20"></span>
+                        <span>Práci se moderními HR systémy a analytics.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="iconify text-red-600 mt-1 flex-shrink-0" data-icon="lucide:check-circle" data-width="20"></span>
+                        <span>Autonomii v HR strategii a iniciativách.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="iconify text-red-600 mt-1 flex-shrink-0" data-icon="lucide:check-circle" data-width="20"></span>
+                        <span>Konkurenceschopné mzdy a comprehensive benefits.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="iconify text-red-600 mt-1 flex-shrink-0" data-icon="lucide:check-circle" data-width="20"></span>
+                        <span>Profesionální vývoj prostřednictvím školení a certifikací.</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Co požadujeme -->
+            <div class="mb-16">
+                <h2 class="text-2xl font-semibold text-neutral-900 mb-2 font-serif">Co požadujeme</h2>
+                <div class="w-16 h-1 bg-red-600 mb-8"></div>
+                <ul class="space-y-4 text-neutral-600 leading-relaxed">
+                    <li class="flex items-start gap-3">
+                        <span class="iconify text-red-600 mt-1 flex-shrink-0" data-icon="lucide:check-circle" data-width="20"></span>
+                        <span>Vzdělání v HR, Psychologii, Právu nebo related fields.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="iconify text-red-600 mt-1 flex-shrink-0" data-icon="lucide:check-circle" data-width="20"></span>
+                        <span>Minimálně 3-4 roky praktické HR zkušenosti.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="iconify text-red-600 mt-1 flex-shrink-0" data-icon="lucide:check-circle" data-width="20"></span>
+                        <span>Znalost HR legislativy a compliance v ČR.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="iconify text-red-600 mt-1 flex-shrink-0" data-icon="lucide:check-circle" data-width="20"></span>
+                        <span>Dovednosti v recruitment, employee relations a development.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="iconify text-red-600 mt-1 flex-shrink-0" data-icon="lucide:check-circle" data-width="20"></span>
+                        <span>Schopnost pracovat s HRIS a analytickými nástroji.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="iconify text-red-600 mt-1 flex-shrink-0" data-icon="lucide:check-circle" data-width="20"></span>
+                        <span>Excellent komunikační a interpersonální dovednosti.</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Co od nás dostanete -->
+            <div class="mb-16">
+                <h2 class="text-2xl font-semibold text-neutral-900 mb-2 font-serif">Co od nás dostanete</h2>
+                <div class="w-16 h-1 bg-red-600 mb-8"></div>
+                <ul class="space-y-4 text-neutral-600 leading-relaxed">
+                    <li class="flex items-start gap-3">
+                        <span class="iconify text-red-600 mt-1 flex-shrink-0" data-icon="lucide:check-circle" data-width="20"></span>
+                        <span>Příležitost budovat HR funkci od základů.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="iconify text-red-600 mt-1 flex-shrink-0" data-icon="lucide:check-circle" data-width="20"></span>
+                        <span>Práci s různorodou a talentovanou populací.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="iconify text-red-600 mt-1 flex-shrink-0" data-icon="lucide:check-circle" data-width="20"></span>
+                        <span>Moderní HR technologie a best practices.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="iconify text-red-600 mt-1 flex-shrink-0" data-icon="lucide:check-circle" data-width="20"></span>
+                        <span>Mentoring a guidance od HR leadership.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="iconify text-red-600 mt-1 flex-shrink-0" data-icon="lucide:check-circle" data-width="20"></span>
+                        <span>Jasnou kariérní cestu a růstové příležitosti.</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Back Button -->
+            <div class="flex justify-center pt-12">
+                <a href="index.html#available-positions" class="inline-flex items-center gap-2 px-8 py-4 bg-red-600 text-white font-medium rounded-full hover:bg-red-800 transition-all duration-300 shadow-lg shadow-red-600/20">
+                    <span class="iconify" data-icon="lucide:arrow-left" data-width="18"></span>
+                    Zpět na všechny pozice
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-neutral-100 py-12">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+                <div>
+                    <div class="flex items-center gap-3 flex-wrap sm:flex-nowrap">
+                        <a href="index.html" class="text-lg font-semibold tracking-tighter text-neutral-900 whitespace-nowrap">
+                            <span class="text-gray-500 italic text-sm mr-1">Ing.</span> KRISTÝNA<span class="text-red-600"> DVOŘÁČKOVÁ</span>
+                        </a>
+                        <div class="relative group flex-shrink-0">
+                            <div class="w-10 h-10 rounded-full border-2 border-red-600 flex items-center justify-center text-red-600 text-xs font-bold cursor-help hover:bg-red-600 hover:text-white transition-all duration-300">
+                                MFP
+                            </div>
+                            <div class="absolute left-1/2 -translate-x-1/2 bottom-full mb-2 px-3 py-2 bg-neutral-900 text-white text-xs rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 whitespace-nowrap shadow-lg z-10">
+                                Ověřený mezinárodní finanční poradce
+                                <div class="absolute top-full left-1/2 -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-l-transparent border-r-transparent border-t-neutral-900"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-neutral-500 text-sm mt-4 leading-relaxed">
+                        Realitní služby s důrazem na důvěru, fakta a profesionalitu.
+                    </p>
+                </div>
+                <div class="md:ml-20">
+                    <h4 class="font-medium text-neutral-900 mb-4">Menu</h4>
+                    <ul class="space-y-2 text-sm text-neutral-500">
+                        <li><a href="index.html#home" class="hover:text-red-600 transition-colors">Domů</a></li>
+                        <li><a href="index.html#about" class="hover:text-red-600 transition-colors">O mně</a></li>
+                        <li><a href="index.html#services" class="hover:text-red-600 transition-colors">Služby</a></li>
+                        <li><a href="index.html#listings" class="hover:text-red-600 transition-colors">Reference</a></li>
+                        <li><a href="index.html#testimonials" class="hover:text-red-600 transition-colors">Recenze</a></li>
+                        <li><a href="index.html#career" class="hover:text-red-600 transition-colors">Kariéra</a></li>
+                        <li><a href="index.html#contact" class="hover:text-red-600 transition-colors">Kontakt</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-medium text-neutral-900 mb-4">Právní informace</h4>
+                    <ul class="space-y-2 text-sm text-neutral-500">
+                        <li><a href="privacy-policy.html" class="hover:text-red-600 transition-colors">Ochrana soukromí</a></li>
+                        <li><a href="terms-of-service.html" class="hover:text-red-600 transition-colors">Obchodní podmínky</a></li>
+                        <li><a href="accessibility.html" class="hover:text-red-600 transition-colors">Přístupnost</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-medium text-neutral-900 mb-4">Sociální sítě</h4>
+                    <div class="flex gap-4">
+                        <a href="https://www.instagram.com/kristynadvorackova/?hl=cs" target="_blank" rel="noopener" class="w-8 h-8 rounded-full bg-neutral-100 flex items-center justify-center text-neutral-600 hover:bg-red-600 hover:text-white transition-all duration-300">
+                            <span class="iconify" data-icon="lucide:instagram" data-width="16"></span>
+                        </a>
+                        <a href="https://www.linkedin.com/in/kristýna-dvořáčková-b55a10243/" target="_blank" rel="noopener" class="w-8 h-8 rounded-full bg-neutral-100 flex items-center justify-center text-neutral-600 hover:bg-red-600 hover:text-white transition-all duration-300">
+                            <span class="iconify" data-icon="lucide:linkedin" data-width="16"></span>
+                        </a>
+                        <a href="https://www.facebook.com/profile.php?id=100085238327594" target="_blank" rel="noopener" class="w-8 h-8 rounded-full bg-neutral-100 flex items-center justify-center text-neutral-600 hover:bg-red-600 hover:text-white transition-all duration-300">
+                            <span class="iconify" data-icon="lucide:facebook" data-width="16"></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-neutral-100 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-neutral-400">
+                <p>© 2026 Ing. Kristýna Dvořáčková, MFP. Všechna práva vyhrazena.</p>
+                <p class="mt-2 md:mt-0">Developed & Designed by Daniel Svoboda</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            if (menu.classList.contains('menu-open')) {
+                menu.classList.remove('no-transition');
+                menu.classList.remove('menu-open');
+                setTimeout(() => {
+                    menu.classList.add('hidden');
+                }, 300);
+            } else {
+                menu.classList.remove('no-transition');
+                menu.classList.remove('hidden');
+                menu.offsetHeight;
+                menu.classList.add('menu-open');
+            }
+        });
+
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.remove('no-transition');
+                menu.classList.remove('menu-open');
+                setTimeout(() => {
+                    menu.classList.add('hidden');
+                }, 300);
+            });
+        });
+    </script>
+
+</body>
+</html>

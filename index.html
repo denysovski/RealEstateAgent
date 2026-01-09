@@ -1,7 +1,7 @@
-<html lang="en" class="scroll-smooth"><head>
+﻿<html lang="en" class="scroll-smooth"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ing. Kristýna Dvořáčková | Realitní služby a finanční poradenství</title>
+    <title>Ing. Kristýna Dvořáčková, MFP | Realitní služby a finanční poradenství</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -251,6 +251,191 @@
             }
         }
 
+        /* Cookie Settings Styles */
+        .cookie-btn-fixed {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            width: 56px;
+            height: 56px;
+            background-color: #dc2626;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s ease;
+        }
+
+        .cookie-btn-fixed:hover {
+            background-color: #b91c1c;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+            transform: scale(1.1);
+        }
+
+        .cookie-btn-fixed svg {
+            width: 28px;
+            height: 28px;
+            color: white;
+        }
+
+        .cookie-modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 10000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .cookie-modal-overlay.show {
+            display: flex;
+        }
+
+        .cookie-modal-box {
+            background: white;
+            border-radius: 12px;
+            padding: 32px;
+            max-width: 500px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+            box-shadow: 0 20px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .cookie-modal-box h2 {
+            font-size: 24px;
+            font-weight: 600;
+            font-family: 'Playfair Display', serif;
+            color: #171717;
+            margin-bottom: 8px;
+        }
+
+        .cookie-modal-box .subtitle {
+            font-size: 12px;
+            color: #a3a3a3;
+            margin-bottom: 24px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .cookie-section {
+            margin-bottom: 24px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        .cookie-section:last-of-type {
+            border-bottom: none;
+        }
+
+        .cookie-section h3 {
+            font-size: 16px;
+            font-weight: 600;
+            color: #171717;
+            margin-bottom: 12px;
+        }
+
+        .cookie-section p {
+            font-size: 14px;
+            color: #737373;
+            line-height: 1.6;
+            margin-bottom: 16px;
+        }
+
+        .cookie-toggle {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .toggle-switch {
+            position: relative;
+            width: 44px;
+            height: 24px;
+            background-color: #d4d4d4;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            flex-shrink: 0;
+            padding: 0;
+        }
+
+        .toggle-switch.enabled {
+            background-color: #dc2626;
+        }
+
+        .toggle-switch.disabled {
+            cursor: not-allowed;
+            opacity: 0.6;
+        }
+
+        .toggle-switch::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: white;
+            border-radius: 50%;
+            top: 2px;
+            left: 2px;
+            transition: left 0.3s ease;
+        }
+
+        .toggle-switch.enabled::after {
+            left: 22px;
+        }
+
+        .toggle-label {
+            font-size: 14px;
+            color: #171717;
+            font-weight: 500;
+        }
+
+        .cookie-buttons {
+            display: flex;
+            gap: 12px;
+            margin-top: 32px;
+        }
+
+        .cookie-btn {
+            flex: 1;
+            padding: 12px 16px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .cookie-btn.primary {
+            background-color: #dc2626;
+            color: white;
+        }
+
+        .cookie-btn.primary:hover {
+            background-color: #b91c1c;
+        }
+
+        .cookie-btn.secondary {
+            background-color: #f5f5f5;
+            color: #171717;
+            border: 1px solid #e5e5e5;
+        }
+
+        .cookie-btn.secondary:hover {
+            background-color: #ebebeb;
+        }
+
         /* Animation utility classes */
         .animate-on-scroll {
             opacity: 0;
@@ -343,7 +528,8 @@
                 <!-- Logo -->
                 <div class="flex-shrink-0 flex items-center">
                     <a href="#" class="text-xl font-semibold tracking-tighter">
-                        <span class="text-gray-500 italic text-sm mr-1">Ing.</span> <span id="logo-sarah" class="text-neutral-900">KRISTÝNA</span><span class="text-red-600"> DVOŘÁČKOVÁ.</span>
+                        <!-- <span class="text-gray-500 italic text-sm mr-1">Ing.</span> -->
+                        <span id="logo-sarah" class="text-neutral-900">KRISTÝNA</span><span class="text-red-600"> DVOŘÁČKOVÁ</span>
                     </a>
                 </div>
 
@@ -354,6 +540,7 @@
                     <a href="#services" class="nav-link text-sm font-medium text-neutral-900 hover:text-red-600 transition-colors">Služby</a>
                     <a href="#listings" class="nav-link text-sm font-medium text-neutral-900 hover:text-red-600 transition-colors">Reference</a>
                     <a href="#testimonials" class="nav-link text-sm font-medium text-neutral-900 hover:text-red-600 transition-colors">Recenze</a>
+                    <a href="#career" class="nav-link text-sm font-medium text-neutral-900 hover:text-red-600 transition-colors">Kariéra</a>
                     <a href="#contact" class="px-5 py-2.5 bg-red-600 text-white text-sm font-medium rounded-full hover:bg-red-800 transition-all duration-300 shadow-lg shadow-red-600/20">
                         Sjednat schůzku
                     </a>
@@ -376,6 +563,7 @@
                 <a href="#services" class="block text-base font-medium text-neutral-600">Služby</a>
                 <a href="#listings" class="block text-base font-medium text-neutral-600">Reference</a>
                 <a href="#testimonials" class="block text-base font-medium text-neutral-600">Recenze</a>
+                <a href="#career" class="block text-base font-medium text-neutral-600">Kariéra</a>
                 <a href="#contact" class="block w-full text-center px-5 py-3 mt-4 bg-red-600 text-white font-medium rounded-lg">Sjednat schůzku</a>
             </div>
         </div>
@@ -385,7 +573,7 @@
     <section id="home" class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
         <!-- Background Image with Overlay -->
         <div class="absolute inset-0 z-0">
-            <img src="landing-page-image.jpg" alt="Luxury Real Estate" class="w-full h-full object-cover" style="object-position: right 80px;">
+            <img src="landing-page-image1.png" alt="Luxury Real Estate" class="w-full h-full object-cover" style="object-position: right 80px;">
             <div class="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent"></div>
         </div>
 
@@ -413,37 +601,6 @@
             </div>
         </div>
     </section>
-
-    
-
-    <!-- Awards / Social Proof Strip -->
-    <div class="bg-white border-b border-neutral-100 py-10">
-        <div class="max-w-7xl mx-auto px-6 lg:px-8">
-            <p class="text-center text-xs font-medium text-neutral-400 uppercase tracking-widest mb-6">Spolehlivá spolupráce s pojišťovnami a bankami</p>
-            <div class="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
-                <span class="text-xl font-sans font-bold tracking-tight text-neutral-800 flex flex-col items-center gap-2 group cursor-pointer">
-                    Česká spořitelna
-                    <span class="w-6 h-0.5 bg-red-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
-                </span>
-                <span class="text-xl font-sans font-bold text-neutral-800 flex flex-col items-center gap-2 group cursor-pointer">
-                    ČSOB
-                    <span class="w-6 h-0.5 bg-red-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
-                </span>
-                <span class="text-xl font-sans font-bold tracking-tight text-neutral-800 flex flex-col items-center gap-2 group cursor-pointer">
-                    Komerční banka
-                    <span class="w-6 h-0.5 bg-red-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
-                </span>
-                <span class="text-xl font-sans font-bold text-neutral-800 flex flex-col items-center gap-2 group cursor-pointer">
-                    Kooperativa
-                    <span class="w-6 h-0.5 bg-red-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
-                </span>
-                <span class="text-xl font-sans font-bold text-neutral-800 flex flex-col items-center gap-2 group cursor-pointer">
-                    Allianz
-                    <span class="w-6 h-0.5 bg-red-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
-                </span>
-            </div>
-        </div>
-    </div>
 
     <!-- About Section -->
     <section id="about" class="py-24 bg-neutral-50">
@@ -487,8 +644,21 @@
                             <p class="text-sm font-semibold text-neutral-600">Finanční poradkyně</p>
                         </div>
                         <div class="px-5 py-3 bg-white border-2 border-red-600 rounded-2xl">
-                            <p class="text-sm font-semibold text-neutral-600">Realitní specialista</p>
+                            <p class="text-sm font-semibold text-neutral-600">Realitní specialistka</p>
                         </div>
+                    </div>
+
+                    <!-- Social Media Icons -->
+                    <div class="flex gap-3 mb-10">
+                        <a href="https://www.instagram.com/kristynadvorackova/?hl=cs" target="_blank" rel="noopener" class="w-12 h-12 rounded-full bg-red-600 flex items-center justify-center text-white hover:bg-white hover:text-red-600 transition-all duration-300 shadow-md">
+                            <span class="iconify" data-icon="lucide:instagram" data-width="20"></span>
+                        </a>
+                        <a href="https://www.linkedin.com/in/krist%C3%BDna-dvo%C5%99%C3%A1%C4%8Dkov%C3%A1-b55a10243/" target="_blank" rel="noopener" class="w-12 h-12 rounded-full bg-red-600 flex items-center justify-center text-white hover:bg-white hover:text-red-600 transition-all duration-300 shadow-md">
+                            <span class="iconify" data-icon="lucide:linkedin" data-width="20"></span>
+                        </a>
+                        <a href="https://www.facebook.com/profile.php?id=100085238327594" target="_blank" rel="noopener" class="w-12 h-12 rounded-full bg-red-600 flex items-center justify-center text-white hover:bg-white hover:text-red-600 transition-all duration-300 shadow-md">
+                            <span class="iconify" data-icon="lucide:facebook" data-width="20"></span>
+                        </a>
                     </div>
                     
                     <div class="mt-10 grid grid-cols-3 gap-6 border-t border-neutral-200 pt-8">
@@ -510,90 +680,52 @@
         </div>
     </section>
 
-    <!-- Awards & Certificates (below About) -->
-    <section id="awards" class="py-24 bg-white">
+    <!-- Why Choose Me Section -->
+    <section class="py-24 bg-neutral-900 text-white">
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
-            <div class="text-center max-w-2xl mx-auto mb-16">
-                <h2 class="animate-on-scroll fade-in-up text-3xl md:text-4xl font-semibold text-neutral-900 tracking-tight mb-4 font-serif">Ocenění &amp; Certifikáty</h2>
-                <p class="animate-on-scroll fade-in delay-100 text-neutral-500 font-light">Odborná a oborová ocenění, která potvrzují mou dlouhodobou práci, profesionalitu a důraz na vysokou kvalitu poskytovaných služeb.</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div class="animate-on-scroll scale-in p-8 rounded-2xl border border-neutral-100 bg-white hover:shadow-xl transition-all duration-300">
-                    <div class="w-12 h-12 rounded-xl bg-red-50 text-red-600 flex items-center justify-center mb-6">
-                        <span class="iconify" data-icon="lucide:trophy" data-width="24"></span>
-                    </div>
-                    <h3 class="text-lg font-semibold text-neutral-900 mb-1">Nejlepší prodejce</h3>
-                    <p class="text-sm text-neutral-500">Asociace makléřů Jihomoravského kraje, 2023</p>
-                </div>
-                <div class="animate-on-scroll scale-in delay-100 p-8 rounded-2xl border border-neutral-100 bg-white hover:shadow-xl transition-all duration-300">
-                    <div class="w-12 h-12 rounded-xl bg-red-50 text-red-600 flex items-center justify-center mb-6">
-                        <span class="iconify" data-icon="lucide:award" data-width="24"></span>
-                    </div>
-                    <h3 class="text-lg font-semibold text-neutral-900 mb-1">Finanční poradce roku</h3>
-                    <p class="text-sm text-neutral-500">Cena za 5 hvězd, 2023</p>
-                </div>
-                <div class="animate-on-scroll scale-in delay-200 p-8 rounded-2xl border border-neutral-100 bg-white hover:shadow-xl transition-all duration-300">
-                    <div class="w-12 h-12 rounded-xl bg-red-50 text-red-600 flex items-center justify-center mb-6">
-                        <span class="iconify" data-icon="lucide:verified" data-width="24"></span>
-                    </div>
-                    <h3 class="text-lg font-semibold text-neutral-900 mb-1">Nejvyšší částka uzavřeného obchodu</h3>
-                    <p class="text-sm text-neutral-500">Oddělení Luxus, 2024</p>
-                </div>
-                <div class="animate-on-scroll scale-in delay-300 p-8 rounded-2xl border border-neutral-100 bg-white hover:shadow-xl transition-all duration-300">
-                    <div class="w-12 h-12 rounded-xl bg-red-50 text-red-600 flex items-center justify-center mb-6">
-                        <span class="iconify" data-icon="lucide:star" data-width="24"></span>
-                    </div>
-                    <h3 class="text-lg font-semibold text-neutral-900 mb-1">Vůdce trhu</h3>
-                    <p class="text-sm text-neutral-500">1% nejlepších makléřů, 2025</p>
-                </div>
-            </div>
-
-            <div id="certificates" class="mt-16">
-                <h3 class="text-2xl font-semibold text-neutral-900 tracking-tight mb-6 font-serif">Profesionální certifikáty</h3>
-                <div class="space-y-3">
-                    <!-- Certificate 1 -->
-                    <div>
-                        <button class="certificate-btn w-full flex items-center justify-between px-6 py-4 rounded-lg border border-neutral-200 hover:border-red-600 bg-neutral-50 hover:bg-white transition-all duration-200" data-cert="crs">
-                            <span class="text-neutral-800 font-medium">Certified Residential Specialist (CRS)</span>
-                            <span class="iconify cert-icon transition-transform" data-icon="lucide:chevron-down" data-width="18"></span>
-                        </button>
-                        <div class="certificate-content px-6 bg-white border border-t-0 border-neutral-200 rounded-b-lg space-y-3" id="cert-crs">
-                            <p class="text-sm text-neutral-600 flex items-center gap-2"><span class="iconify text-red-500" data-icon="lucide:globe-2" data-width="16"></span> Brno, 2025</p>
-                            <p class="text-sm text-neutral-600 flex items-start gap-2"><span class="text-red-500 font-semibold">|</span> Nejvyšší označení v realitách získané po kurzu CRS a letech praxe.</p>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+                <div class="animate-on-scroll slide-in-left">
+                    <h2 class="text-3xl md:text-4xl font-semibold tracking-tight mb-6 font-serif">Proč spolupracovat se mnou?</h2>
+                    <p class="text-neutral-400 mb-8 font-light leading-relaxed">
+                        V konkurenčním realitním prostředí nestačí pouhý přístup k nabídkám. Klíčem k úspěchu je strategické vedení, finanční souvislosti a profesionální vyjednávání. Jako realitní a finanční poradkyně zastupuji Vaše zájmy komplexně – od úvodní analýzy až po finální uzavření obchodu.
+                    </p>
+                    <div class="space-y-6">
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0 w-6 h-6 rounded-full bg-red-600 flex items-center justify-center mt-1">
+                                <span class="iconify text-white" data-icon="lucide:check" data-width="14"></span>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-medium text-white">Individuální přístup ke klientům</h4>
+                                <p class="text-sm text-neutral-400 mt-1">Spolupracuji s omezeným počtem klientů, což mi umožňuje věnovat každému maximální pozornost, flexibilitu a skutečně osobní servis.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0 w-6 h-6 rounded-full bg-red-600 flex items-center justify-center mt-1">
+                                <span class="iconify text-white" data-icon="lucide:check" data-width="14"></span>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-medium text-white">Strategické vyjednávání</h4>
+                                <p class="text-sm text-neutral-400 mt-1">Certifikovaná odbornice na vyjednávání s prokazatelnými výsledky při dosahování výhodnějších podmínek a vyšší celkové hodnoty transakce.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0 w-6 h-6 rounded-full bg-red-600 flex items-center justify-center mt-1">
+                                <span class="iconify text-white" data-icon="lucide:check" data-width="14"></span>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-medium text-white">Finanční a tržní expertiza</h4>
+                                <p class="text-sm text-neutral-400 mt-1">Propojuji detailní znalost lokálního realitního trhu s finanční analýzou, investičním pohledem a přehledem o plánovaném rozvoji lokalit.</p>
+                            </div>
                         </div>
                     </div>
-                    <!-- Certificate 2 -->
-                    <div>
-                        <button class="certificate-btn w-full flex items-center justify-between px-6 py-4 rounded-lg border border-neutral-200 hover:border-red-600 bg-neutral-50 hover:bg-white transition-all duration-200" data-cert="abr">
-                            <span class="text-neutral-800 font-medium">Accredited Buyer's Representative (ABR)</span>
-                            <span class="iconify cert-icon transition-transform" data-icon="lucide:chevron-down" data-width="18"></span>
-                        </button>
-                        <div class="certificate-content px-6 bg-white border border-t-0 border-neutral-200 rounded-b-lg space-y-3" id="cert-abr">
-                            <p class="text-sm text-neutral-600 flex items-center gap-2"><span class="iconify text-red-500" data-icon="lucide:globe-2" data-width="16"></span> Praha, 2024</p>
-                            <p class="text-sm text-neutral-600 flex items-start gap-2"><span class="text-red-500 font-semibold">|</span> Zaměření na kupující, absolvovaný kurz ABR a praxe v jednání.</p>
-                        </div>
-                    </div>
-                    <!-- Certificate 3 -->
-                    <div>
-                        <button class="certificate-btn w-full flex items-center justify-between px-6 py-4 rounded-lg border border-neutral-200 hover:border-red-600 bg-neutral-50 hover:bg-white transition-all duration-200" data-cert="srs">
-                            <span class="text-neutral-800 font-medium">Seller Representative Specialist (SRS)</span>
-                            <span class="iconify cert-icon transition-transform" data-icon="lucide:chevron-down" data-width="18"></span>
-                        </button>
-                        <div class="certificate-content px-6 bg-white border border-t-0 border-neutral-200 rounded-b-lg space-y-3" id="cert-srs">
-                            <p class="text-sm text-neutral-600 flex items-center gap-2"><span class="iconify text-red-500" data-icon="lucide:globe-2" data-width="16"></span> Ostrava, 2023</p>
-                            <p class="text-sm text-neutral-600 flex items-start gap-2"><span class="text-red-500 font-semibold">|</span> Reprezentace prodávajících, kurz SRS a praxe v prodejní strategii.</p>
-                        </div>
-                    </div>
-                    <!-- Certificate 4 -->
-                    <div>
-                        <button class="certificate-btn w-full flex items-center justify-between px-6 py-4 rounded-lg border border-neutral-200 hover:border-red-600 bg-neutral-50 hover:bg-white transition-all duration-200" data-cert="clhms">
-                            <span class="text-neutral-800 font-medium">Certified Luxury Home Marketing Specialist (CLHMS)</span>
-                            <span class="iconify cert-icon transition-transform" data-icon="lucide:chevron-down" data-width="18"></span>
-                        </button>
-                        <div class="certificate-content px-6 bg-white border border-t-0 border-neutral-200 rounded-b-lg space-y-3" id="cert-clhms">
-                            <p class="text-sm text-neutral-600 flex items-center gap-2"><span class="iconify text-red-500" data-icon="lucide:globe-2" data-width="16"></span> Miami, 2026</p>
-                            <p class="text-sm text-neutral-600 flex items-start gap-2"><span class="text-red-500 font-semibold">|</span> Marketing luxusních nemovitostí, pokročilý kurz a práce s prémiovými klienty.</p>
+                </div>
+                <div class="relative h-full min-h-[400px]">
+                     <!-- Abstract UI Representation of Data/Success -->
+                    <div class="absolute inset-0 bg-neutral-800 rounded-2xl overflow-hidden border border-neutral-700">
+                        <img src="consult.jpg" class="w-full h-full object-cover opacity-50 hover:scale-105 transition-transform duration-700" alt="Meeting">
+                        <div class="absolute bottom-0 left-0 w-full p-8 bg-gradient-to-t from-neutral-900 to-transparent">
+                            <blockquote class="text-lg font-serif italic text-white mb-2">"Strategické vedení Kristýny přineslo jasný a nadstandardní výsledek."</blockquote>
+                            <p class="text-sm text-red-500 font-medium">— Marek P. &amp; Jiří K.</p>
                         </div>
                     </div>
                 </div>
@@ -679,55 +811,80 @@
         </div>
     </section>
 
-    <!-- Why Choose Me Section -->
-    <section class="py-24 bg-neutral-900 text-white">
+    <!-- Instagram: Finance & Real Estate (placed directly below Featured Listings) -->
+    <section id="social" class="py-24 bg-neutral-50">
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
-                <div class="animate-on-scroll slide-in-left">
-                    <h2 class="text-3xl md:text-4xl font-semibold tracking-tight mb-6 font-serif">Proč spolupracovat se mnou?</h2>
-                    <p class="text-neutral-400 mb-8 font-light leading-relaxed">
-                        V konkurenčním realitním prostředí nestačí pouhý přístup k nabídkám. Klíčem k úspěchu je strategické vedení, finanční souvislosti a profesionální vyjednávání. Jako realitní a finanční poradkyně zastupuji Vaše zájmy komplexně – od úvodní analýzy až po finální uzavření obchodu.
-                    </p>
-                    <div class="space-y-6">
-                        <div class="flex gap-4">
-                            <div class="flex-shrink-0 w-6 h-6 rounded-full bg-red-600 flex items-center justify-center mt-1">
-                                <span class="iconify text-white" data-icon="lucide:check" data-width="14"></span>
-                            </div>
-                            <div>
-                                <h4 class="text-lg font-medium text-white">Individuální přístup ke klientům</h4>
-                                <p class="text-sm text-neutral-400 mt-1">Spolupracuji s omezeným počtem klientů, což mi umožňuje věnovat každému maximální pozornost, flexibilitu a skutečně osobní servis.</p>
-                            </div>
-                        </div>
-                        <div class="flex gap-4">
-                            <div class="flex-shrink-0 w-6 h-6 rounded-full bg-red-600 flex items-center justify-center mt-1">
-                                <span class="iconify text-white" data-icon="lucide:check" data-width="14"></span>
-                            </div>
-                            <div>
-                                <h4 class="text-lg font-medium text-white">Strategické vyjednávání</h4>
-                                <p class="text-sm text-neutral-400 mt-1">Certifikovaná odbornice na vyjednávání s prokazatelnými výsledky při dosahování výhodnějších podmínek a vyšší celkové hodnoty transakce.</p>
-                            </div>
-                        </div>
-                        <div class="flex gap-4">
-                            <div class="flex-shrink-0 w-6 h-6 rounded-full bg-red-600 flex items-center justify-center mt-1">
-                                <span class="iconify text-white" data-icon="lucide:check" data-width="14"></span>
-                            </div>
-                            <div>
-                                <h4 class="text-lg font-medium text-white">Finanční a tržní expertiza</h4>
-                                <p class="text-sm text-neutral-400 mt-1">Propojuji detailní znalost lokálního realitního trhu s finanční analýzou, investičním pohledem a přehledem o plánovaném rozvoji lokalit.</p>
-                            </div>
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <h2 class="animate-on-scroll fade-in-up text-3xl md:text-4xl font-semibold text-neutral-900 tracking-tight mb-4 font-serif">Realitní a finanční přehled</h2>
+                <p class="animate-on-scroll fade-in delay-100 text-neutral-500 font-light">Pravidelný odborný obsah na Instagramu zaměřený na realitní trh, investice a finanční strategii. Přehledně, srozumitelně a založeno na datech z praxe.</p>
+            </div>
+
+            <!-- Highlights row -->
+            <div class="highlights-row flex gap-4 overflow-x-auto pb-2 mb-10">
+                <div class="highlights-item flex-shrink-0 w-28 h-28 rounded-full border-2 border-red-600 bg-white flex items-center justify-center text-sm font-medium text-red-600">Tipy z trhu</div>
+                <div class="highlights-item flex-shrink-0 w-28 h-28 rounded-full border-2 border-red-600 bg-white flex items-center justify-center text-sm font-medium text-red-600">Finance</div>
+                <div class="highlights-item flex-shrink-0 w-28 h-28 rounded-full border-2 border-red-600 bg-white flex items-center justify-center text-sm font-medium text-red-600">Investování</div>
+                <div class="highlights-item flex-shrink-0 w-28 h-28 rounded-full border-2 border-red-600 bg-white flex items-center justify-center text-sm font-medium text-red-600">Prohlídky</div>
+                <div class="highlights-item flex-shrink-0 w-28 h-28 rounded-full border-2 border-red-600 bg-white flex items-center justify-center text-sm font-medium text-red-600">Q&A</div>
+            </div>
+
+            <!-- Posts grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Post 1 -->
+                <a href="https://www.instagram.com/p/DR42XrRlzYv/" target="_blank" rel="noopener" class="animate-on-scroll scale-in relative rounded-2xl overflow-hidden border border-neutral-100 bg-white group" aria-label="Přehrát video: 3 ways to reduce your mortgage interest cost in 2026">
+                    <div class="aspect-[4/5] overflow-hidden">
+                        <video src="reel1.mp4" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 reel-video" autoplay muted loop playsinline preload="metadata"></video>
+                    </div>
+                    <div class="absolute top-3 left-3 bg-white/80 backdrop-blur-sm rounded-full px-3 py-1 text-xs font-medium text-neutral-800 flex items-center gap-2">
+                        <span class="iconify" data-icon="lucide:instagram" data-width="14"></span> @kristynadvorackova
+                    </div>
+                    <div class="absolute bottom-0 left-0 right-0 p-5 bg-gradient-to-t from-black/70 to-transparent text-white">
+                        <p class="text-sm font-medium">Pokud je ti 25 a ještě jsi nevydělal svůj první milion korun, tohle bys měl slyšet</p>
+                        <div class="mt-2 text-xs text-neutral-200 flex items-center gap-3">
+                            <span class="flex items-center gap-1"><span class="iconify" data-icon="lucide:calendar" data-width="14"></span> Publikováno 25. prosince 2025</span>
                         </div>
                     </div>
-                </div>
-                <div class="relative h-full min-h-[400px]">
-                     <!-- Abstract UI Representation of Data/Success -->
-                    <div class="absolute inset-0 bg-neutral-800 rounded-2xl overflow-hidden border border-neutral-700">
-                        <img src="consult.jpg" class="w-full h-full object-cover opacity-50 hover:scale-105 transition-transform duration-700" alt="Meeting">
-                        <div class="absolute bottom-0 left-0 w-full p-8 bg-gradient-to-t from-neutral-900 to-transparent">
-                            <blockquote class="text-lg font-serif italic text-white mb-2">"Strategické vedení Kristýny přineslo jasný a nadstandardní výsledek."</blockquote>
-                            <p class="text-sm text-red-500 font-medium">— Marek P. &amp; Jiří K.</p>
+                </a>
+
+                <!-- Post 2 -->
+                <a href="https://www.instagram.com/p/DSsc6tmicZz/" target="_blank" rel="noopener" class="animate-on-scroll scale-in delay-100 relative rounded-2xl overflow-hidden border border-neutral-100 bg-white group" aria-label="Přehrát video: Neighborhood spotlight: what drives premium pricing in top markets">
+                    <div class="aspect-[4/5] overflow-hidden">
+                        <video src="reel2.mp4" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 reel-video" autoplay muted loop playsinline preload="metadata"></video>
+                    </div>
+                    <div class="absolute top-3 left-3 bg-white/80 backdrop-blur-sm rounded-full px-3 py-1 text-xs font-medium text-neutral-800 flex items-center gap-2">
+                        <span class="iconify" data-icon="lucide:instagram" data-width="14"></span> @kristynadvorackova
+                    </div>
+                    <div class="absolute bottom-0 left-0 right-0 p-5 bg-gradient-to-t from-black/70 to-transparent text-white">
+                        <p class="text-sm font-medium">Vlastní bydlení už nemusí být jen vzdáleným snem</p>
+                        <div class="mt-2 text-xs text-neutral-200 flex items-center gap-3">
+                            <span class="flex items-center gap-1"><span class="iconify" data-icon="lucide:calendar" data-width="14"></span> Publikováno 25. prosince 2025</span>
                         </div>
                     </div>
-                </div>
+                </a>
+
+                <!-- Post 3 -->
+                <a href="https://www.instagram.com/p/DKxH0V4Njqa/" target="_blank" rel="noopener" class="animate-on-scroll scale-in delay-200 relative rounded-2xl overflow-hidden border border-neutral-100 bg-white group" aria-label="Přehrát video: Cash flow vs appreciation: balancing returns in rentals">
+                    <div class="aspect-[4/5] overflow-hidden">
+                        <video src="reel3.mp4" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 reel-video" autoplay muted loop playsinline preload="metadata"></video>
+                    </div>
+                    <div class="absolute top-3 left-3 bg-white/80 backdrop-blur-sm rounded-full px-3 py-1 text-xs font-medium text-neutral-800 flex items-center gap-2">
+                        <span class="iconify" data-icon="lucide:instagram" data-width="14"></span> @kristynadvorackova
+                    </div>
+                    <div class="absolute bottom-0 left-0 right-0 p-5 bg-gradient-to-t from-black/70 to-transparent text-white">
+                        <p class="text-sm font-medium">Kam bezpečně uložit peníze, aby neztrácely hodnotu?</p>
+                        <div class="mt-2 text-xs text-neutral-200 flex items-center gap-3">
+                            <span class="flex items-center gap-1"><span class="iconify" data-icon="lucide:calendar" data-width="14"></span> Publikováno 11. června 2025</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <!-- CTA -->
+            <div class="text-center mt-12">
+                <a href="https://www.instagram.com/kristynadvorackova/?hl=cs" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-red-600 text-white font-medium hover:bg-red-700 transition-colors">
+                    <span class="iconify" data-icon="lucide:instagram" data-width="18"></span>
+                    Více insightů na @kristynadvorackova
+                </a>
             </div>
         </div>
     </section>
@@ -856,84 +1013,6 @@
         </div>
     </section>
 
-    <!-- Instagram: Finance & Real Estate (placed directly below Featured Listings) -->
-    <section id="social" class="py-24 bg-neutral-50">
-        <div class="max-w-7xl mx-auto px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-12">
-                <h2 class="animate-on-scroll fade-in-up text-3xl md:text-4xl font-semibold text-neutral-900 tracking-tight mb-4 font-serif">Realitní a finanční přehled</h2>
-                <p class="animate-on-scroll fade-in delay-100 text-neutral-500 font-light">Pravidelný odborný obsah na Instagramu zaměřený na realitní trh, investice a finanční strategie. Přehledně, srozumitelně a založeno na datech z praxe.</p>
-            </div>
-
-            <!-- Highlights row -->
-            <div class="highlights-row flex gap-4 overflow-x-auto pb-2 mb-10">
-                <div class="highlights-item flex-shrink-0 w-28 h-28 rounded-full border-2 border-red-600 bg-white flex items-center justify-center text-sm font-medium text-red-600">Tipy z trhu</div>
-                <div class="highlights-item flex-shrink-0 w-28 h-28 rounded-full border-2 border-red-600 bg-white flex items-center justify-center text-sm font-medium text-red-600">Finance</div>
-                <div class="highlights-item flex-shrink-0 w-28 h-28 rounded-full border-2 border-red-600 bg-white flex items-center justify-center text-sm font-medium text-red-600">Investování</div>
-                <div class="highlights-item flex-shrink-0 w-28 h-28 rounded-full border-2 border-red-600 bg-white flex items-center justify-center text-sm font-medium text-red-600">Prohlídky</div>
-                <div class="highlights-item flex-shrink-0 w-28 h-28 rounded-full border-2 border-red-600 bg-white flex items-center justify-center text-sm font-medium text-red-600">Q&A</div>
-            </div>
-
-            <!-- Posts grid -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Post 1 -->
-                <a href="https://www.instagram.com/p/DR42XrRlzYv/" target="_blank" rel="noopener" class="animate-on-scroll scale-in relative rounded-2xl overflow-hidden border border-neutral-100 bg-white group" aria-label="Přehrát video: 3 ways to reduce your mortgage interest cost in 2026">
-                    <div class="aspect-[4/5] overflow-hidden">
-                        <video src="reel1.mp4" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 reel-video" muted loop playsinline preload="metadata"></video>
-                    </div>
-                    <div class="absolute top-3 left-3 bg-white/80 backdrop-blur-sm rounded-full px-3 py-1 text-xs font-medium text-neutral-800 flex items-center gap-2">
-                        <span class="iconify" data-icon="lucide:instagram" data-width="14"></span> @kristynadvorackova
-                    </div>
-                    <div class="absolute bottom-0 left-0 right-0 p-5 bg-gradient-to-t from-black/70 to-transparent text-white">
-                        <p class="text-sm font-medium">Pokud je ti 25 a ještě jsi nevydělal svůj první milion korun, tohle bys měl slyšet</p>
-                        <div class="mt-2 text-xs text-neutral-200 flex items-center gap-3">
-                            <span class="flex items-center gap-1"><span class="iconify" data-icon="lucide:calendar" data-width="14"></span> Publikováno 25. prosince 2025</span>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- Post 2 -->
-                <a href="https://www.instagram.com/p/DSsc6tmicZz/" target="_blank" rel="noopener" class="animate-on-scroll scale-in delay-100 relative rounded-2xl overflow-hidden border border-neutral-100 bg-white group" aria-label="Přehrát video: Neighborhood spotlight: what drives premium pricing in top markets">
-                    <div class="aspect-[4/5] overflow-hidden">
-                        <video src="reel2.mp4" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 reel-video" muted loop playsinline preload="metadata"></video>
-                    </div>
-                    <div class="absolute top-3 left-3 bg-white/80 backdrop-blur-sm rounded-full px-3 py-1 text-xs font-medium text-neutral-800 flex items-center gap-2">
-                        <span class="iconify" data-icon="lucide:instagram" data-width="14"></span> @kristynadvorackova
-                    </div>
-                    <div class="absolute bottom-0 left-0 right-0 p-5 bg-gradient-to-t from-black/70 to-transparent text-white">
-                        <p class="text-sm font-medium">Vlastní bydlení už nemusí být jen vzdáleným snem</p>
-                        <div class="mt-2 text-xs text-neutral-200 flex items-center gap-3">
-                            <span class="flex items-center gap-1"><span class="iconify" data-icon="lucide:calendar" data-width="14"></span> Publikováno 25. prosince 2025</span>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- Post 3 -->
-                <a href="https://www.instagram.com/p/DKxH0V4Njqa/" target="_blank" rel="noopener" class="animate-on-scroll scale-in delay-200 relative rounded-2xl overflow-hidden border border-neutral-100 bg-white group" aria-label="Přehrát video: Cash flow vs appreciation: balancing returns in rentals">
-                    <div class="aspect-[4/5] overflow-hidden">
-                        <video src="reel3.mp4" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 reel-video" muted loop playsinline preload="metadata"></video>
-                    </div>
-                    <div class="absolute top-3 left-3 bg-white/80 backdrop-blur-sm rounded-full px-3 py-1 text-xs font-medium text-neutral-800 flex items-center gap-2">
-                        <span class="iconify" data-icon="lucide:instagram" data-width="14"></span> @kristynadvorackova
-                    </div>
-                    <div class="absolute bottom-0 left-0 right-0 p-5 bg-gradient-to-t from-black/70 to-transparent text-white">
-                        <p class="text-sm font-medium">Kam bezpečně uložit peníze, aby neztrácely hodnotu?</p>
-                        <div class="mt-2 text-xs text-neutral-200 flex items-center gap-3">
-                            <span class="flex items-center gap-1"><span class="iconify" data-icon="lucide:calendar" data-width="14"></span> Publikováno 11. června 2025</span>
-                        </div>
-                    </div>
-                </a>
-            </div>
-
-            <!-- CTA -->
-            <div class="text-center mt-12">
-                <a href="https://www.instagram.com/kristynadvorackova/?hl=cs" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-red-600 text-white font-medium hover:bg-red-700 transition-colors">
-                    <span class="iconify" data-icon="lucide:instagram" data-width="18"></span>
-                    Více insightů na @kristynadvorackova
-                </a>
-            </div>
-        </div>
-    </section>
-
     <!-- Testimonials -->
     <section id="testimonials" class="py-24 bg-neutral-50">
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
@@ -988,6 +1067,207 @@
         </div>
     </section>
 
+    <!-- Awards & Certificates (below About) -->
+    <section id="awards" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <h2 class="animate-on-scroll fade-in-up text-3xl md:text-4xl font-semibold text-neutral-900 tracking-tight mb-4 font-serif">Ocenění &amp; Certifikáty</h2>
+                <p class="animate-on-scroll fade-in delay-100 text-neutral-500 font-light">Odborná a oborová ocenění, která potvrzují mou dlouhodobou práci, profesionalitu a důraz na vysokou kvalitu poskytovaných služeb.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="animate-on-scroll scale-in p-8 rounded-2xl border border-neutral-100 bg-white hover:shadow-xl transition-all duration-300">
+                    <div class="w-12 h-12 rounded-xl bg-red-50 text-red-600 flex items-center justify-center mb-6">
+                        <span class="iconify" data-icon="lucide:trophy" data-width="24"></span>
+                    </div>
+                    <h3 class="text-lg font-semibold text-neutral-900 mb-1">Nejlepší prodejce</h3>
+                    <p class="text-sm text-neutral-500">Asociace makléřů Jihomoravského kraje, 2023</p>
+                </div>
+                <div class="animate-on-scroll scale-in delay-100 p-8 rounded-2xl border border-neutral-100 bg-white hover:shadow-xl transition-all duration-300">
+                    <div class="w-12 h-12 rounded-xl bg-red-50 text-red-600 flex items-center justify-center mb-6">
+                        <span class="iconify" data-icon="lucide:award" data-width="24"></span>
+                    </div>
+                    <h3 class="text-lg font-semibold text-neutral-900 mb-1">Finanční poradce roku</h3>
+                    <p class="text-sm text-neutral-500">Cena za 5 hvězd, 2023</p>
+                </div>
+                <div class="animate-on-scroll scale-in delay-200 p-8 rounded-2xl border border-neutral-100 bg-white hover:shadow-xl transition-all duration-300">
+                    <div class="w-12 h-12 rounded-xl bg-red-50 text-red-600 flex items-center justify-center mb-6">
+                        <span class="iconify" data-icon="lucide:verified" data-width="24"></span>
+                    </div>
+                    <h3 class="text-lg font-semibold text-neutral-900 mb-1">Nejvyšší částka uzavřeného obchodu</h3>
+                    <p class="text-sm text-neutral-500">Oddělení Luxus, 2024</p>
+                </div>
+                <div class="animate-on-scroll scale-in delay-300 p-8 rounded-2xl border border-neutral-100 bg-white hover:shadow-xl transition-all duration-300">
+                    <div class="w-12 h-12 rounded-xl bg-red-50 text-red-600 flex items-center justify-center mb-6">
+                        <span class="iconify" data-icon="lucide:star" data-width="24"></span>
+                    </div>
+                    <h3 class="text-lg font-semibold text-neutral-900 mb-1">Vůdce trhu</h3>
+                    <p class="text-sm text-neutral-500">1% nejlepších makléřů, 2025</p>
+                </div>
+            </div>
+
+            <div id="certificates" class="mt-16">
+                <h3 class="text-2xl font-semibold text-neutral-900 tracking-tight mb-6 font-serif">Profesionální certifikáty</h3>
+                <div class="space-y-3">
+                    <!-- Certificate 1 -->
+                    <div>
+                        <button class="certificate-btn w-full flex items-center justify-between px-6 py-4 rounded-lg border border-neutral-200 hover:border-red-600 bg-neutral-50 hover:bg-white transition-all duration-200" data-cert="crs">
+                            <span class="text-neutral-800 font-medium">Certified Residential Specialist (CRS)</span>
+                            <span class="iconify cert-icon transition-transform" data-icon="lucide:chevron-down" data-width="18"></span>
+                        </button>
+                        <div class="certificate-content px-6 bg-white border border-t-0 border-neutral-200 rounded-b-lg space-y-3" id="cert-crs">
+                            <p class="text-sm text-neutral-600 flex items-center gap-2"><span class="iconify text-red-500" data-icon="lucide:globe-2" data-width="16"></span> Brno, 2025</p>
+                            <p class="text-sm text-neutral-600 flex items-start gap-2"><span class="text-red-500 font-semibold">|</span> Nejvyšší označení v realitách získané po kurzu CRS a letech praxe.</p>
+                        </div>
+                    </div>
+                    <!-- Certificate 2 -->
+                    <div>
+                        <button class="certificate-btn w-full flex items-center justify-between px-6 py-4 rounded-lg border border-neutral-200 hover:border-red-600 bg-neutral-50 hover:bg-white transition-all duration-200" data-cert="abr">
+                            <span class="text-neutral-800 font-medium">Accredited Buyer's Representative (ABR)</span>
+                            <span class="iconify cert-icon transition-transform" data-icon="lucide:chevron-down" data-width="18"></span>
+                        </button>
+                        <div class="certificate-content px-6 bg-white border border-t-0 border-neutral-200 rounded-b-lg space-y-3" id="cert-abr">
+                            <p class="text-sm text-neutral-600 flex items-center gap-2"><span class="iconify text-red-500" data-icon="lucide:globe-2" data-width="16"></span> Praha, 2024</p>
+                            <p class="text-sm text-neutral-600 flex items-start gap-2"><span class="text-red-500 font-semibold">|</span> Zaměření na kupující, absolvovaný kurz ABR a praxe v jednání.</p>
+                        </div>
+                    </div>
+                    <!-- Certificate 3 -->
+                    <div>
+                        <button class="certificate-btn w-full flex items-center justify-between px-6 py-4 rounded-lg border border-neutral-200 hover:border-red-600 bg-neutral-50 hover:bg-white transition-all duration-200" data-cert="srs">
+                            <span class="text-neutral-800 font-medium">Seller Representative Specialist (SRS)</span>
+                            <span class="iconify cert-icon transition-transform" data-icon="lucide:chevron-down" data-width="18"></span>
+                        </button>
+                        <div class="certificate-content px-6 bg-white border border-t-0 border-neutral-200 rounded-b-lg space-y-3" id="cert-srs">
+                            <p class="text-sm text-neutral-600 flex items-center gap-2"><span class="iconify text-red-500" data-icon="lucide:globe-2" data-width="16"></span> Ostrava, 2023</p>
+                            <p class="text-sm text-neutral-600 flex items-start gap-2"><span class="text-red-500 font-semibold">|</span> Reprezentace prodávajících, kurz SRS a praxe v prodejní strategii.</p>
+                        </div>
+                    </div>
+                    <!-- Certificate 4 -->
+                    <div>
+                        <button class="certificate-btn w-full flex items-center justify-between px-6 py-4 rounded-lg border border-neutral-200 hover:border-red-600 bg-neutral-50 hover:bg-white transition-all duration-200" data-cert="clhms">
+                            <span class="text-neutral-800 font-medium">Certified Luxury Home Marketing Specialist (CLHMS)</span>
+                            <span class="iconify cert-icon transition-transform" data-icon="lucide:chevron-down" data-width="18"></span>
+                        </button>
+                        <div class="certificate-content px-6 bg-white border border-t-0 border-neutral-200 rounded-b-lg space-y-3" id="cert-clhms">
+                            <p class="text-sm text-neutral-600 flex items-center gap-2"><span class="iconify text-red-500" data-icon="lucide:globe-2" data-width="16"></span> Miami, 2026</p>
+                            <p class="text-sm text-neutral-600 flex items-start gap-2"><span class="text-red-500 font-semibold">|</span> Marketing luxusních nemovitostí, pokročilý kurz a práce s prémiovými klienty.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Career Section -->
+    <section id="career" class="py-24 bg-neutral-50">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="animate-on-scroll fade-in-up text-3xl md:text-4xl font-semibold text-neutral-900 tracking-tight mb-4 font-serif">Připojte se k našemu týmu</h2>
+                <p class="animate-on-scroll fade-in delay-100 text-neutral-600 font-light">Jsme vždy hledáme talentované specialisty v oblasti financí a nemovitostí. Podívejte se, jaké pozice jsou nyní dostupné a najděte si tu, která vám nejlépe vyhovuje!</p>
+            </div>
+
+            <!-- Video Section -->
+            <div class="max-w-4xl mx-auto mb-16">
+                <div class="relative rounded-2xl overflow-hidden shadow-2xl cursor-pointer group" id="video-container">
+                    <img src="https://img.youtube.com/vi/9_tT19MWhwo/maxresdefault.jpg" alt="Career video thumbnail" class="w-full h-auto object-cover group-hover:brightness-75 transition-all duration-300">
+                    <div class="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/50 transition-all duration-300">
+                        <div class="w-20 h-20 rounded-full bg-red-600 flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                            <span class="iconify text-white" data-icon="lucide:play" data-width="40"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Available Positions -->
+            <div id="available-positions" class="mb-12" style="scroll-margin-top: 60px;">
+                <h3 class="animate-on-scroll fade-in-up text-2xl md:text-3xl font-semibold text-neutral-900 tracking-tight mb-12 font-serif">Dostupné pozice</h3>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Position 1 -->
+                    <div class="animate-on-scroll scale-in group p-8 rounded-2xl border border-neutral-100 bg-white hover:shadow-xl hover:shadow-neutral-200/50 transition-all duration-300 hover:-translate-y-1 flex flex-col">
+                        <div class="w-32 h-32 rounded-full overflow-hidden mb-6 border-2 border-red-100 shadow-md group-hover:scale-110 transition-transform duration-300">
+                            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=150&h=150&fit=crop" alt="Sales" class="w-full h-full object-cover">
+                        </div>
+                        <h4 class="text-lg font-semibold text-neutral-900 mb-3">Obchodní asistent/ka</h4>
+                        <p class="text-sm text-neutral-500 leading-relaxed mb-6 flex-1">Podpora realitních transakcí a správa klientských vztahů v dynamickém prostředí.</p>
+                        <a href="position-obchodni-asistent.html" class="inline-flex items-center gap-2 text-red-600 font-medium text-sm hover:gap-3 transition-all group/link">
+                            Více informací
+                            <span class="iconify group-hover/link:translate-x-1 transition-transform" data-icon="lucide:arrow-right" data-width="16"></span>
+                        </a>
+                    </div>
+
+                    <!-- Position 2 -->
+                    <div class="animate-on-scroll scale-in delay-100 group p-8 rounded-2xl border border-neutral-100 bg-white hover:shadow-xl hover:shadow-neutral-200/50 transition-all duration-300 hover:-translate-y-1 flex flex-col">
+                        <div class="w-32 h-32 rounded-full overflow-hidden mb-6 border-2 border-red-100 shadow-md group-hover:scale-110 transition-transform duration-300">
+                            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=150&h=150&fit=crop" alt="Financial Consultant" class="w-full h-full object-cover">
+                        </div>
+                        <h4 class="text-lg font-semibold text-neutral-900 mb-3">Finanční konzultant/ka</h4>
+                        <p class="text-sm text-neutral-500 leading-relaxed mb-6 flex-1">Poskytování odborného finančního poradenství a strategického plánování klientům.</p>
+                        <a href="position-financni-konzultant.html" class="inline-flex items-center gap-2 text-red-600 font-medium text-sm hover:gap-3 transition-all group/link">
+                            Více informací
+                            <span class="iconify group-hover/link:translate-x-1 transition-transform" data-icon="lucide:arrow-right" data-width="16"></span>
+                        </a>
+                    </div>
+
+                    <!-- Position 3 -->
+                    <div class="animate-on-scroll scale-in delay-200 group p-8 rounded-2xl border border-neutral-100 bg-white hover:shadow-xl hover:shadow-neutral-200/50 transition-all duration-300 hover:-translate-y-1 flex flex-col">
+                        <div class="w-32 h-32 rounded-full overflow-hidden mb-6 border-2 border-red-100 shadow-md group-hover:scale-110 transition-transform duration-300">
+                            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=150&h=150&fit=crop" alt="Manager" class="w-full h-full object-cover">
+                        </div>
+                        <h4 class="text-lg font-semibold text-neutral-900 mb-3">Manažer/ka</h4>
+                        <p class="text-sm text-neutral-500 leading-relaxed mb-6 flex-1">Vedení týmu a zajištění nejvyššího standardu služeb pro naše klienty.</p>
+                        <a href="position-manager.html" class="inline-flex items-center gap-2 text-red-600 font-medium text-sm hover:gap-3 transition-all group/link">
+                            Více informací
+                            <span class="iconify group-hover/link:translate-x-1 transition-transform" data-icon="lucide:arrow-right" data-width="16"></span>
+                        </a>
+                    </div>
+
+                    <!-- Position 4 -->
+                    <div class="animate-on-scroll scale-in delay-300 group p-8 rounded-2xl border border-neutral-100 bg-white hover:shadow-xl hover:shadow-neutral-200/50 transition-all duration-300 hover:-translate-y-1 flex flex-col">
+                        <div class="w-32 h-32 rounded-full overflow-hidden mb-6 border-2 border-red-100 shadow-md group-hover:scale-110 transition-transform duration-300">
+                            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=150&h=150&fit=crop" alt="HR" class="w-full h-full object-cover">
+                        </div>
+                        <h4 class="text-lg font-semibold text-neutral-900 mb-3">Personalista/ka</h4>
+                        <p class="text-sm text-neutral-500 leading-relaxed mb-6 flex-1">Správa lidských zdrojů a budování silného týmu talentovaných profesionálů.</p>
+                        <a href="position-personalista.html" class="inline-flex items-center gap-2 text-red-600 font-medium text-sm hover:gap-3 transition-all group/link">
+                            Více informací
+                            <span class="iconify group-hover/link:translate-x-1 transition-transform" data-icon="lucide:arrow-right" data-width="16"></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Awards / Social Proof Strip -->
+    <div class="bg-white border-b border-neutral-100 py-10">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <p class="text-center text-xs font-medium text-neutral-400 uppercase tracking-widest mb-6">Spolehlivá spolupráce s pojišťovnami a bankami</p>
+            <div class="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
+                <span class="text-xl font-sans font-bold tracking-tight text-neutral-800 flex flex-col items-center gap-2 group cursor-pointer">
+                    Česká spořitelna
+                    <span class="w-6 h-0.5 bg-red-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                </span>
+                <span class="text-xl font-sans font-bold text-neutral-800 flex flex-col items-center gap-2 group cursor-pointer">
+                    ČSOB
+                    <span class="w-6 h-0.5 bg-red-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                </span>
+                <span class="text-xl font-sans font-bold tracking-tight text-neutral-800 flex flex-col items-center gap-2 group cursor-pointer">
+                    Komerční banka
+                    <span class="w-6 h-0.5 bg-red-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                </span>
+                <span class="text-xl font-sans font-bold text-neutral-800 flex flex-col items-center gap-2 group cursor-pointer">
+                    Kooperativa
+                    <span class="w-6 h-0.5 bg-red-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                </span>
+                <span class="text-xl font-sans font-bold text-neutral-800 flex flex-col items-center gap-2 group cursor-pointer">
+                    Allianz
+                    <span class="w-6 h-0.5 bg-red-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                </span>
+            </div>
+        </div>
+    </div>
+
     <!-- Contact Section -->
     <section id="contact" class="py-24 bg-white">
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
@@ -1038,16 +1318,27 @@
     <!-- Footer -->
     <footer class="bg-white border-t border-neutral-100 py-12">
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
-                <div class="col-span-1 md:col-span-1">
-                     <a href="#home" class="text-lg font-semibold tracking-tighter text-neutral-900">
-                        <span class="text-gray-500 italic text-sm mr-1">Ing.</span> KRISTÝNA<span class="text-red-600"> DVOŘÁČKOVÁ</span>.
-                    </a>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+                <div>
+                     <div class="flex items-center gap-3 flex-wrap sm:flex-nowrap">
+                        <a href="#home" class="text-lg font-semibold tracking-tighter text-neutral-900 whitespace-nowrap">
+                            <span class="text-gray-500 italic text-sm mr-1">Ing.</span> KRISTÝNA<span class="text-red-600"> DVOŘÁČKOVÁ</span>
+                        </a>
+                        <div class="relative group flex-shrink-0">
+                            <div class="w-10 h-10 rounded-full border-2 border-red-600 flex items-center justify-center text-red-600 text-xs font-bold cursor-help hover:bg-red-600 hover:text-white transition-all duration-300">
+                                MFP
+                            </div>
+                            <div class="absolute left-1/2 -translate-x-1/2 bottom-full mb-2 px-3 py-2 bg-neutral-900 text-white text-xs rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 whitespace-nowrap shadow-lg z-10">
+                                Ověřený mezinárodní finanční poradce
+                                <div class="absolute top-full left-1/2 -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-l-transparent border-r-transparent border-t-neutral-900"></div>
+                            </div>
+                        </div>
+                    </div>
                     <p class="text-neutral-500 text-sm mt-4 leading-relaxed">
                         Realitní služby s důrazem na důvěru, fakta a profesionalitu.
                     </p>
                 </div>
-                <div>
+                <div class="md:ml-20">
                     <h4 class="font-medium text-neutral-900 mb-4">Menu</h4>
                     <ul class="space-y-2 text-sm text-neutral-500">
                         <li><a href="#home" class="hover:text-red-600 transition-colors">Domů</a></li>
@@ -1055,6 +1346,7 @@
                         <li><a href="#services" class="hover:text-red-600 transition-colors">Služby</a></li>
                         <li><a href="#listings" class="hover:text-red-600 transition-colors">Reference</a></li>
                         <li><a href="#testimonials" class="hover:text-red-600 transition-colors">Recenze</a></li>
+                        <li><a href="#career" class="hover:text-red-600 transition-colors">Kariéra</a></li>
                         <li><a href="#contact" class="hover:text-red-600 transition-colors">Kontakt</a></li>
                     </ul>
                 </div>
@@ -1385,7 +1677,7 @@
         if ('IntersectionObserver' in window && socialSection) {
             const reelObserver = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
-                    if (entry.isIntersecting && entry.intersectionRatio >= 0.4) {
+                    if (entry.isIntersecting) {
                         reelVideos.forEach(video => {
                             video.play().catch(() => {});
                         });
@@ -1395,12 +1687,178 @@
                         });
                     }
                 });
-            }, { threshold: 0.4 });
+            }, { threshold: 0.1 });
 
             reelObserver.observe(socialSection);
         } else {
             reelVideos.forEach(video => video.play().catch(() => {}));
         }
+
+        // YouTube Video Modal
+        const videoContainer = document.getElementById('video-container');
+        if (videoContainer) {
+            videoContainer.addEventListener('click', () => {
+                // Create modal
+                const modal = document.createElement('div');
+                modal.className = 'fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4';
+                modal.innerHTML = `
+                    <div class="relative w-full max-w-4xl">
+                        <button class="absolute -top-12 right-0 text-white hover:text-neutral-300 transition-colors" id="close-modal">
+                            <span class="iconify" data-icon="lucide:x" data-width="32"></span>
+                        </button>
+                        <div class="relative w-full" style="padding-bottom: 56.25%;">
+                            <iframe 
+                                class="absolute inset-0 w-full h-full rounded-lg" 
+                                src="https://www.youtube.com/embed/9_tT19MWhwo?autoplay=1&fs=1&modestbranding=1&rel=0&quality=hd1080" 
+                                title="Career Video"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                    </div>
+                `;
+                document.body.appendChild(modal);
+
+                // Close modal on X click
+                document.getElementById('close-modal').addEventListener('click', () => {
+                    modal.remove();
+                });
+
+                // Close modal on background click
+                modal.addEventListener('click', (e) => {
+                    if (e.target === modal) {
+                        modal.remove();
+                    }
+                });
+
+                // Close modal on Escape key
+                const closeOnEscape = (e) => {
+                    if (e.key === 'Escape') {
+                        modal.remove();
+                        document.removeEventListener('keydown', closeOnEscape);
+                    }
+                };
+                document.addEventListener('keydown', closeOnEscape);
+            });
+        }
+
+        // Cookie Settings
+        document.addEventListener('DOMContentLoaded', function() {
+            const cookieBtnFixed = document.getElementById('cookieBtnFixed');
+            const cookieModalOverlay = document.getElementById('cookieModalOverlay');
+            const analyticsToggle = document.getElementById('analyticsToggle');
+            const saveCookieBtn = document.getElementById('saveCookieBtn');
+            const allowAllBtn = document.getElementById('allowAllBtn');
+
+            if (!cookieBtnFixed || !cookieModalOverlay) {
+                console.error('Cookie elements not found');
+                return;
+            }
+
+            function loadCookiePreferences() {
+                const saved = localStorage.getItem('cookiePreferences');
+                if (saved) {
+                    const prefs = JSON.parse(saved);
+                    if (prefs.analytics) {
+                        analyticsToggle.classList.add('enabled');
+                    }
+                }
+            }
+
+            function setCookie(name, value, days = 365) {
+                const date = new Date();
+                date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+                const expires = "expires=" + date.toUTCString();
+                document.cookie = name + "=" + value + ";" + expires + ";path=/";
+            }
+
+            function deleteCookie(name) {
+                document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 UTC;path=/;";
+            }
+
+            cookieBtnFixed.addEventListener('click', () => {
+                console.log('Cookie button clicked');
+                cookieModalOverlay.classList.add('show');
+                const saved = localStorage.getItem('cookiePreferences');
+                if (saved && JSON.parse(saved).analytics) {
+                    analyticsToggle.classList.add('enabled');
+                }
+            });
+
+            cookieModalOverlay.addEventListener('click', (e) => {
+                if (e.target === cookieModalOverlay) {
+                    cookieModalOverlay.classList.remove('show');
+                }
+            });
+
+            analyticsToggle.addEventListener('click', () => {
+                analyticsToggle.classList.toggle('enabled');
+            });
+
+            saveCookieBtn.addEventListener('click', () => {
+                const preferences = {
+                    technical: true,
+                    analytics: analyticsToggle.classList.contains('enabled')
+                };
+                localStorage.setItem('cookiePreferences', JSON.stringify(preferences));
+                if (preferences.analytics) {
+                    setCookie('analytics_accepted', 'true', 365);
+                } else {
+                    deleteCookie('analytics_accepted');
+                }
+                cookieModalOverlay.classList.remove('show');
+            });
+
+            allowAllBtn.addEventListener('click', () => {
+                analyticsToggle.classList.add('enabled');
+                const preferences = {
+                    technical: true,
+                    analytics: true
+                };
+                localStorage.setItem('cookiePreferences', JSON.stringify(preferences));
+                setCookie('analytics_accepted', 'true', 365);
+                cookieModalOverlay.classList.remove('show');
+            });
+
+            loadCookiePreferences();
+        });
     </script>
+
+    <!-- Cookie Settings Button and Modal -->
+    <button id="cookieBtnFixed" class="cookie-btn-fixed" title="Cookie Settings">
+        <span class="iconify" data-icon="lucide:settings" data-width="28" style="color: white;"></span>
+    </button>
+
+    <div id="cookieModalOverlay" class="cookie-modal-overlay">
+        <div class="cookie-modal-box">
+            <h2>Podrobné nastavení cookies</h2>
+            <div class="subtitle">Dvořáčková</div>
+
+            <p style="font-size: 14px; color: #737373; margin-bottom: 24px;">Na této webové stránce používáme soubory cookies. Podrobné informace o používání souborů cookies jsou uvedeny v Zásadách ochrany osobních údajů.</p>
+
+            <div class="cookie-section">
+                <h3>Technické cookies</h3>
+                <p>Tyto soubory cookies jsou nezbytné pro správné fungování našich webových stránek, proto je není možné vypnout. Váš prohlížeč můžete nastavit tak, aby tyto soubory cookies blokoval. Upozorňujeme vás, že v takovém případě některé části webových stránek nebudou fungovat.</p>
+                <div class="cookie-toggle">
+                    <button class="toggle-switch enabled disabled" disabled></button>
+                    <span class="toggle-label">Technické cookies ✔</span>
+                </div>
+            </div>
+
+            <div class="cookie-section">
+                <h3>Analytické cookies</h3>
+                <p>Tyto soubory cookies nám umožňují analyzovat využívání našich webových stránek, měřit návštěvnost a získávat další informace o provozu webových stránek. Cílem je zlepšovat výkonnost našich webových stránek.</p>
+                <div class="cookie-toggle">
+                    <button class="toggle-switch" id="analyticsToggle"></button>
+                    <span class="toggle-label">Analytické cookies</span>
+                </div>
+            </div>
+
+            <div class="cookie-buttons">
+                <button class="cookie-btn secondary" id="saveCookieBtn">Uložit vybraná nastavení</button>
+                <button class="cookie-btn primary" id="allowAllBtn">Povolit všechna cookies</button>
+            </div>
+        </div>
+    </div>
 
 </body></html>
