@@ -58,6 +58,25 @@
         @media (prefers-reduced-motion: reduce) {
             .reveal, .reveal-stagger > * { transition: none; }
         }
+
+        /* Pulsing CTA ring */
+        .pulse-button {
+            position: relative;
+        }
+        .pulse-button::before {
+            content: "";
+            position: absolute;
+            inset: -6px;
+            border-radius: 9999px;
+            border: 2px solid #DC2626;
+            opacity: 0.25;
+            animation: pulse-ring 1.8s ease-out infinite;
+        }
+        @keyframes pulse-ring {
+            0% { transform: scale(1); opacity: 0.35; }
+            70% { transform: scale(1.4); opacity: 0; }
+            100% { transform: scale(1.4); opacity: 0; }
+        }
     </style>
 </head>
 <body class="font-sans text-neutral-600 antialiased bg-white">
@@ -117,6 +136,8 @@
             <p class="text-lg text-neutral-200 font-light max-w-2xl mx-auto reveal">Připojte se k našemu dynamickému týmu a budujte kariéru v realitním byznysu</p>
         </div>
     </section>
+
+    
 
     <!-- Content Section -->
     <section class="py-24 bg-white">
@@ -211,10 +232,28 @@
                 </ul>
             </div>
 
+            <!-- CTA: Zaujala Vás tato pracovní nabídka? -->
+            <div class="mb-16 reveal">
+                <div class="rounded-2xl border border-neutral-200 p-8 bg-neutral-50">
+                    <h3 class="text-xl font-semibold text-neutral-900 mb-3 font-serif">Zaujala Vás tato pracovní nabídka?</h3>
+                    <p class="text-neutral-600 mb-6">Ozvěte se nám – rádi si s Vámi domluvíme krátkou konzultaci a představíme detaily pozice.</p>
+                    <div class="flex flex-col sm:flex-row items-center gap-4">
+                        <a href="index.html#contact" class="pulse-button inline-flex items-center justify-center gap-2 px-8 py-4 bg-red-600 text-white font-medium rounded-full hover:bg-red-800 transition-all duration-300 shadow-lg shadow-red-600/20">
+                            <span class="iconify" data-icon="lucide:calendar" data-width="18"></span>
+                            Sjednat schůzku
+                        </a>
+                        <div class="text-sm text-neutral-600 flex flex-col sm:flex-row items-center sm:items-center gap-2 sm:gap-4 text-center sm:text-left">
+                            <a href="tel:+420123456789" class="flex items-center gap-2 hover:text-red-600 transition-colors"><span class="iconify" data-icon="lucide:phone" data-width="16"></span> +420 123 456 789</a>
+                            <span class="hidden sm:inline text-neutral-300">|</span>
+                            <a href="mailto:kristyna.dvorackova@agent.com" class="flex items-center gap-2 hover:text-red-600 transition-colors"><span class="iconify" data-icon="lucide:mail" data-width="16"></span> kristyna.dvorackova@agent.com</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <!-- Back Button -->
             <div class="flex justify-center pt-12">
-                <a href="index.html#available-positions" class="inline-flex items-center gap-2 px-8 py-4 bg-red-600 text-white font-medium rounded-full hover:bg-red-800 transition-all duration-300 shadow-lg shadow-red-600/20">
-                    <a href="index.html#available-positions" class="inline-flex items-center gap-2 px-8 py-4 bg-red-600 text-white font-medium rounded-full hover:bg-red-800 transition-all duration-300 shadow-lg shadow-red-600/20 reveal">
+                <a href="index.html#available-positions" class="inline-flex items-center gap-2 px-8 py-4 bg-red-600 text-white font-medium rounded-full hover:bg-red-800 transition-all duration-300 shadow-lg shadow-red-600/20 reveal">
                     <span class="iconify" data-icon="lucide:arrow-left" data-width="18"></span>
                     Zpět na všechny pozice
                 </a>
