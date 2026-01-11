@@ -123,6 +123,48 @@
                 padding-bottom: 1rem; /* 16px */
             }
 
+        /* Role accordion styling */
+        .role-accordion-btn {
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .role-accordion-btn.active {
+            background-color: #DC2626 !important;
+            color: white;
+        }
+
+        .role-accordion-btn.active p {
+            color: white;
+        }
+
+        .role-accordion-btn .chevron-icon {
+            display: inline-block;
+            transition: transform 0.3s ease;
+            margin-left: 8px;
+        }
+
+        .role-accordion-btn.active .chevron-icon {
+            transform: rotate(180deg);
+        }
+
+        .role-content {
+            max-height: 0;
+            opacity: 0;
+            transform: translateY(-6px);
+            overflow: hidden;
+            transition: max-height 0.35s ease, opacity 0.3s ease, transform 0.3s ease, padding-top 0.3s ease, padding-bottom 0.3s ease;
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+
+        .role-content.open {
+            max-height: 500px;
+            opacity: 1;
+            transform: translateY(0);
+            padding-top: 1rem;  /* 16px */
+            padding-bottom: 1rem; /* 16px */
+        }
+
         /* Navigation breakpoint override: hamburger below 1000px */
         @media (max-width: 999px) {
             .desktop-menu {
@@ -181,16 +223,16 @@
         #mobile-menu {
             max-height: 0;
             overflow: hidden;
-            opacity: 0;
+            opacity: 1;
             visibility: hidden;
-            transition: max-height 0.3s ease-out, opacity 0.3s ease-out, visibility 0s 0.3s;
+            transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), visibility 0s 0.4s;
         }
 
         #mobile-menu.menu-open {
             max-height: 500px;
             opacity: 1;
             visibility: visible;
-            transition: max-height 0.3s ease-out, opacity 0.3s ease-out, visibility 0s;
+            transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), visibility 0s;
         }
 
         #mobile-menu.no-transition {
@@ -536,7 +578,7 @@
                 <!-- Desktop Menu -->
                 <div class="hidden md:flex space-x-8 items-center desktop-menu">
                     <a href="#home" class="nav-link text-sm font-medium text-neutral-900 hover:text-red-600 transition-colors">Domů</a>
-                    <a href="#about" class="nav-link text-sm font-medium text-neutral-900 hover:text-red-600 transition-colors">O mně</a>
+                    <a href="#about" class="nav-link text-sm font-medium text-neutral-900 hover:text-red-600 transition-colors"></a>
                     <a href="#services" class="nav-link text-sm font-medium text-neutral-900 hover:text-red-600 transition-colors">Služby</a>
                     <a href="#listings" class="nav-link text-sm font-medium text-neutral-900 hover:text-red-600 transition-colors">Reference</a>
                     <a href="#testimonials" class="nav-link text-sm font-medium text-neutral-900 hover:text-red-600 transition-colors">Recenze</a>
@@ -605,7 +647,7 @@
     <!-- About Section -->
     <section id="about" class="py-24 bg-neutral-50">
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
                 <!-- Image -->
                 <div class="animate-on-scroll slide-in-left relative order-2 lg:order-1">
                     <div class="relative rounded-[2rem] overflow-hidden aspect-[4/5] shadow-2xl">
@@ -629,22 +671,35 @@
                     </h3>
                     <div class="space-y-6 text-neutral-600 leading-relaxed font-light">
                         <p>
-                            Realitní trh není pouze o nákupu a prodeji nemovitostí. Je především o strategických rozhodnutích, dlouhodobé hodnotě a efektivním řízení kapitálu. Moje profesní cesta začala ve světě financí a investic, kde jsem si vybudovala pevné analytické základy, a postupně se přirozeně rozšířila o hlubokou specializaci na realitní trh a investiční strategie.
-                        </p>
-                        <p>
-                            Jako finanční poradkyně a realitní specialistka propojuji finanční plánování s realitními rozhodnutími tak, aby každá transakce dávala smysl nejen dnes, ale i z dlouhodobého hlediska. Věřím v přístup „klient na prvním místě“ a v řešení šitá na míru konkrétním cílům a životní situaci.
-                        </p>
-                        <p>
-                            Ať už prodáváte rezidenční nemovitost, optimalizujete realitní portfolio nebo hledáte investiční příležitost s udržitelným výnosem, poskytuji jasnou strategii podloženou daty, zkušenostmi a finančním kontextem. Mým cílem je maximalizovat hodnotu Vaší nemovitosti, zajistit transparentní komunikaci a řídit celý proces efektivně – od úvodní finanční a tržní analýzy až po úspěšné uzavření obchodu.
+                            Realitní trh vnímám jako strategickou práci s kapitálem, ne jen nákup a prodej. Vycházím z pevných základů ve financích a investicích, které propojuji s hlubokou znalostí realitního trhu. Jako finanční poradkyně a realitní specialistka vytvářím řešení na míru konkrétním cílům klientů. Poskytuji datově podložené strategie pro prodej, správu i investice do nemovitostí.
                         </p>
                     </div>
 
-                    <div class="flex gap-3 mt-8 mb-10">
-                        <div class="px-5 py-3 bg-white border-2 border-red-600 rounded-2xl">
-                            <p class="text-sm font-semibold text-neutral-600">Finanční poradkyně</p>
+                    <h4 class="text-red-600 font-medium tracking-wide text-sm uppercase mb-[7px] mt-8">Více informací</h4>
+
+                    <div class="mt-8 mb-10 space-y-3">
+                        <!-- Button 1: Finanční poradkyně -->
+                        <button class="role-accordion-btn active w-full px-5 py-3 bg-white border-2 border-red-600 rounded-2xl text-left" data-role="financni">
+                            <p class="text-sm font-semibold text-neutral-600 flex items-center justify-between">Finanční poradkyně<span class="chevron-icon iconify" data-icon="lucide:chevron-down" data-width="16"></span></p>
+                        </button>
+                        <div class="role-content open" id="content-financni">
+                            <p class="text-sm text-neutral-600">Poskytuji komplexní finanční poradenství zaměřené na optimalizaci vašich investic, plánování důchodu a strategické financování nemovitostí. Mým cílem je vytvořit udržitelnou finanční strategii, která zvyšuje vaši bohatství a zajišťuje finanční bezpečnost pro budoucnost.</p>
                         </div>
-                        <div class="px-5 py-3 bg-white border-2 border-red-600 rounded-2xl">
-                            <p class="text-sm font-semibold text-neutral-600">Realitní specialistka</p>
+
+                        <!-- Button 2: Realitní specialistka -->
+                        <button class="role-accordion-btn w-full px-5 py-3 bg-white border-2 border-red-600 rounded-2xl text-left" data-role="realitni">
+                            <p class="text-sm font-semibold text-neutral-600 flex items-center justify-between">Realitní specialistka<span class="chevron-icon iconify" data-icon="lucide:chevron-down" data-width="16"></span></p>
+                        </button>
+                        <div class="role-content" id="content-realitni">
+                            <p class="text-sm text-neutral-600">Specialista na prodej, nákup a pronájem nemovitostí. Nabízím profesionální ocenění, marketingové strategie a vyjednávání s cílem dosáhnout nejlepší možné ceny. Mám hluboké znalosti realitního trhu a jsem schopná vést vás skrz celý proces jednoduchým a transparentním způsobem.</p>
+                        </div>
+
+                        <!-- Button 3: Volný čas -->
+                        <button class="role-accordion-btn w-full px-5 py-3 bg-white border-2 border-red-600 rounded-2xl text-left" data-role="volny">
+                            <p class="text-sm font-semibold text-neutral-600 flex items-center justify-between">Volný čas<span class="chevron-icon iconify" data-icon="lucide:chevron-down" data-width="16"></span></p>
+                        </button>
+                        <div class="role-content" id="content-volny">
+                            <p class="text-sm text-neutral-600">Ve volném čase se věnuji sportu, cestování a objevování nových destinací. Miluji kulturu, číst knihy o psychologii a obchodě, a trávím čas s rodinou a přáteli. Tyto aktivity mě nabíjejí energií a inspirují v mé profesní práci.</p>
                         </div>
                     </div>
 
@@ -2148,6 +2203,33 @@
                     btnText.classList.remove('hidden');
                     submitBtn.disabled = false;
                 }
+            });
+        });
+
+        // Role Accordion Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const accordionBtns = document.querySelectorAll('.role-accordion-btn');
+
+            accordionBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const role = this.getAttribute('data-role');
+                    const contentId = 'content-' + role;
+                    const contentElement = document.getElementById(contentId);
+
+                    // Close all other accordion items
+                    accordionBtns.forEach(otherBtn => {
+                        if (otherBtn !== this) {
+                            otherBtn.classList.remove('active');
+                            const otherRole = otherBtn.getAttribute('data-role');
+                            const otherContent = document.getElementById('content-' + otherRole);
+                            otherContent.classList.remove('open');
+                        }
+                    });
+
+                    // Toggle current accordion item
+                    this.classList.toggle('active');
+                    contentElement.classList.toggle('open');
+                });
             });
         });
     </script>

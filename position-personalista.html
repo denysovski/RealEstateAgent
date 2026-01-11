@@ -50,6 +50,14 @@
             visibility: visible;
             transition: max-height 0.3s ease-out, opacity 0.3s ease-out, visibility 0s;
         }
+        /* Fade-in animations */
+        .reveal { opacity: 0; transform: translateY(12px); transition: opacity 600ms ease, transform 600ms ease; will-change: opacity, transform; }
+        .reveal.is-visible { opacity: 1; transform: none; }
+        .reveal-stagger > * { opacity: 0; transform: translateY(12px); transition: opacity 600ms ease, transform 600ms ease; will-change: opacity, transform; }
+        .reveal-stagger.is-visible > * { opacity: 1; transform: none; }
+        @media (prefers-reduced-motion: reduce) {
+            .reveal, .reveal-stagger > * { transition: none; }
+        }
     </style>
 </head>
 <body class="font-sans text-neutral-600 antialiased bg-white">
@@ -105,10 +113,10 @@
         </div>
 
         <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 text-center w-full">
-            <h1 class="text-4xl md:text-5xl lg:text-6xl font-semibold text-white tracking-tight mb-4 font-serif">
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-semibold text-white tracking-tight mb-4 font-serif reveal">
                 Personalista/ka
             </h1>
-            <p class="text-lg text-neutral-200 font-light max-w-2xl mx-auto">
+            <p class="text-lg text-neutral-200 font-light max-w-2xl mx-auto reveal">
                 Buduj talent v naší rostoucí organizaci a formuj budoucnost teamu
             </p>
         </div>
@@ -117,16 +125,13 @@
     <!-- Content Section -->
     <section class="py-24 bg-white">
         <div class="max-w-5xl mx-auto px-6 lg:px-8">
-            <!-- Image -->
-            <div class="mb-16 rounded-2xl overflow-hidden shadow-xl">
-                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=1200&h=400&fit=crop" alt="HR" class="w-full h-64 object-cover">
-            </div>
+            
 
             <!-- Co nabízíme -->
             <div class="mb-16">
                 <h2 class="text-2xl font-semibold text-neutral-900 mb-2 font-serif">Co nabízíme</h2>
                 <div class="w-16 h-1 bg-red-600 mb-8"></div>
-                <ul class="space-y-4 text-neutral-600 leading-relaxed">
+                <ul class="space-y-4 text-neutral-600 leading-relaxed reveal-stagger">
                     <li class="flex items-start gap-3">
                         <span class="iconify text-red-600 mt-1 flex-shrink-0" data-icon="lucide:check-circle" data-width="20"></span>
                         <span>Klíčovou roli v budování a rozvoji našeho teamu.</span>
@@ -154,7 +159,7 @@
             <div class="mb-16">
                 <h2 class="text-2xl font-semibold text-neutral-900 mb-2 font-serif">Co požadujeme</h2>
                 <div class="w-16 h-1 bg-red-600 mb-8"></div>
-                <ul class="space-y-4 text-neutral-600 leading-relaxed">
+                <ul class="space-y-4 text-neutral-600 leading-relaxed reveal-stagger">
                     <li class="flex items-start gap-3">
                         <span class="iconify text-red-600 mt-1 flex-shrink-0" data-icon="lucide:check-circle" data-width="20"></span>
                         <span>Vzdělání v HR, Psychologii, Právu nebo related fields.</span>
@@ -186,7 +191,7 @@
             <div class="mb-16">
                 <h2 class="text-2xl font-semibold text-neutral-900 mb-2 font-serif">Co od nás dostanete</h2>
                 <div class="w-16 h-1 bg-red-600 mb-8"></div>
-                <ul class="space-y-4 text-neutral-600 leading-relaxed">
+                <ul class="space-y-4 text-neutral-600 leading-relaxed reveal-stagger">
                     <li class="flex items-start gap-3">
                         <span class="iconify text-red-600 mt-1 flex-shrink-0" data-icon="lucide:check-circle" data-width="20"></span>
                         <span>Příležitost budovat HR funkci od základů.</span>
@@ -212,7 +217,7 @@
 
             <!-- Back Button -->
             <div class="flex justify-center pt-12">
-                <a href="index.html#available-positions" class="inline-flex items-center gap-2 px-8 py-4 bg-red-600 text-white font-medium rounded-full hover:bg-red-800 transition-all duration-300 shadow-lg shadow-red-600/20">
+                <a href="index.html#available-positions" class="inline-flex items-center gap-2 px-8 py-4 bg-red-600 text-white font-medium rounded-full hover:bg-red-800 transition-all duration-300 shadow-lg shadow-red-600/20 reveal">
                     <span class="iconify" data-icon="lucide:arrow-left" data-width="18"></span>
                     Zpět na všechny pozice
                 </a>
@@ -311,6 +316,24 @@
                 setTimeout(() => {
                     menu.classList.add('hidden');
                 }, 300);
+            });
+        });
+    </script>
+    <script>
+        // On-scroll fade-in animations
+        const io = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    io.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15 });
+
+        document.querySelectorAll('.reveal, .reveal-stagger').forEach(el => io.observe(el));
+        document.querySelectorAll('.reveal-stagger').forEach(group => {
+            Array.from(group.children).forEach((child, i) => {
+                child.style.transitionDelay = `${i * 80}ms`;
             });
         });
     </script>
